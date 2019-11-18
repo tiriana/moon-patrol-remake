@@ -43,4 +43,6 @@ func _process(delta):
 			
 	velocity = move_and_slide(velocity, FLOOR);
 	
+	position.y = min(position.y, 1000)
+	
 	pass
