@@ -1,0 +1,128 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://levels/Level2.gd" type="Script" id=1]
+[ext_resource path="res://scenes/rocks/RockBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="Level2" type="Node2D"]
+editor/display_folded = true
+script = ExtResource( 1 )
+
+[node name="Rock" parent="." instance=ExtResource( 2 )]
+
+[node name="Rock12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8390.88, 990.823 )
+
+[node name="Rock8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4682.9, 1032.96 )
+
+[node name="Rock13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 11874.1, 962.733 )
+
+[node name="Rock4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2658.78, 1041.62 )
+
+[node name="Rock10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9850, 971.397 )
+
+[node name="Rock6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6142.03, 1013.53 )
+
+[node name="Rock15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 13333.3, 943.306 )
+
+[node name="Rock2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1889.86, 1039.57 )
+
+[node name="Rock9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9081.09, 969.344 )
+
+[node name="Rock5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5373.11, 1011.48 )
+
+[node name="Rock16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 12564.3, 941.253 )
+
+[node name="Rock3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3348.99, 1020.14 )
+
+[node name="Rock11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 10540.2, 949.917 )
+
+[node name="Rock7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6832.24, 992.054 )
+
+[node name="Rock14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 14023.5, 921.827 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 428.384, 358.157 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 105.34, 477.542 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1706.51, 821.654 )
+texture = ExtResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1404.54, 294.953 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+position = Vector2( -801.347, 917.821 )
+scale = Vector2( 1, -1 )
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 428.384, 358.157 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 105.34, 477.542 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 1706.51, 821.654 )
+texture = ExtResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 1404.54, 294.953 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+position = Vector2( 23.2949, 475.217 )
+motion_scale = Vector2( 0.7, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 428.384, 358.157 )
+scale = Vector2( 0.5, 1 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 105.34, 477.542 )
+scale = Vector2( 0.5, 1 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 1706.51, 821.654 )
+scale = Vector2( 0.5, 1 )
+texture = ExtResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 1404.54, 294.953 )
+scale = Vector2( 0.5, 1 )
+texture = ExtResource( 3 )
