@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/texture/car.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player/GunFront.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/player/GunFront.gd" type="Script" id=4]
+[ext_resource path="res://scenes/player/BulletBig.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/texture/ak47.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 29.6256
+height = 125.818
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 0
+collision/safe_margin = 0.01
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -75, 0 )
+anchor_mode = 0
+current = true
+limit_top = 0
+limit_bottom = -1080
+drag_margin_h_enabled = false
+smoothing_enabled = true
+drag_margin_left = 0.0
+drag_margin_right = 0.7
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 87.5717, -502.654 )
+enabled = true
+cast_to = Vector2( 0, 10000 )
+collision_mask = 2
+
+[node name="GunFront" parent="." instance=ExtResource( 3 )]
+
+[node name="GunTop" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( -36.5081, -20.0636 )
+rotation = 4.71239
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+BulletBigScene = ExtResource( 5 )
+rate_of_fire = 0.25
+
+[node name="Sprite" type="Sprite" parent="GunTop"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="RateOfFire" type="Timer" parent="GunTop"]
+wait_time = 0.5
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 94.1996, 14.0079 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 3 )
+[connection signal="timeout" from="GunTop/RateOfFire" to="GunTop" method="_on_RateOfFire_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

@@ -1,5 +1,5 @@
 extends Node2D
-
+tool
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -8,7 +8,7 @@ var Ground = preload("res://levels/Ground1.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	remove_child(get_node("ground"));
+	randomize()
 	
 	for i in range(0, 20):
 		var ground = Ground.instance();
