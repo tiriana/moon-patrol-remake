@@ -1,4 +1,4 @@
-extends CollisionShape2D
+extends Node2D
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -6,7 +6,6 @@ extends CollisionShape2D
 
 var t = randf() * 100;
 var kdif = randi()%3
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

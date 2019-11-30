@@ -48,7 +48,6 @@ func _process(delta):
 	if (not is_jumping || position.y >= ground_y):
 		position.y = ground_y;
 		is_jumping = false
-			
 	pass
 
 

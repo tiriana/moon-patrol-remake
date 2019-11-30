@@ -29,7 +29,7 @@ func _physics_process(delta):
 	desired_position += Vector2(200, -500) + pos_mod
 	var dir = desired_position.normalized()
 	
-	move_and_collide((dir * desired_position.length() * 3.6 * speed_mod * delta))
+	move_and_collide((dir * desired_position.length() * 3 * speed_mod * delta))
 	
 	#position.x = clamp(position.x, player.position.x - 100, player.position.x + 100);
 	#position.y = clamp(position.x, player.position.x - 100, player.position.x + 100)
@@ -37,14 +37,25 @@ func _physics_process(delta):
 func _on_Player_entered(body):
 	active = true
 	
-	print("ACTIVATING");
-	
 	#get_node("PlayerScanner").get_node("CollisionShape2D").disabled = true;
 	pass # Replace with function body.
 
 
 func _on_PlayerScanner_area_entered(area):
-	active = true
+	active = true;
 	
-	print("ACTIVATING");
+	pass # Replace with function body.
+
+
+func _on_Hitbox_area_entered(area):
+	area.queue_free();
+	queue_free();
+	visible = false;
+	pass # Replace with function body.
+
+
+func _on_Hitbox_body_entered(body):
+	body.queue_free();
+	queue_free();
+	visible = false;
 	pass # Replace with function body.
