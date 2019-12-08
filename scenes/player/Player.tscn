@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/car.png" type="Texture" id=2]
 [ext_resource path="res://scenes/player/GunFront.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/player/GunFront.gd" type="Script" id=4]
-[ext_resource path="res://scenes/player/BulletBig.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/texture/ak47.png" type="Texture" id=6]
+[ext_resource path="res://scenes/player/GunTop.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,13 +13,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 25.7038
+height = 115.309
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 29.6256
 height = 125.818
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 0
 collision_mask = 0
 collision/safe_margin = 0.01
 script = ExtResource( 1 )
@@ -50,33 +51,22 @@ collision_mask = 2
 
 [node name="GunFront" parent="." instance=ExtResource( 3 )]
 
-[node name="GunTop" type="Node2D" parent="."]
-editor/display_folded = true
-position = Vector2( -36.5081, -20.0636 )
-rotation = 4.71239
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-BulletBigScene = ExtResource( 5 )
-rate_of_fire = 0.25
-
-[node name="Sprite" type="Sprite" parent="GunTop"]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 6 )
-
-[node name="RateOfFire" type="Timer" parent="GunTop"]
-wait_time = 0.5
+[node name="GunTop" parent="." instance=ExtResource( 4 )]
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_mask = 4
+collision_mask = 28
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 94.1996, 14.0079 )
-shape = SubResource( 2 )
+rotation = 1.5708
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource( 3 )
-[connection signal="timeout" from="GunTop/RateOfFire" to="GunTop" method="_on_RateOfFire_timeout"]
+
+[node name="RespownTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

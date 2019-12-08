@@ -131,10 +131,10 @@ position = Vector2( 6832.24, 992.054 )
 position = Vector2( 14023.5, 921.827 )
 
 [node name="UFO" parent="." instance=ExtResource( 4 )]
-position = Vector2( 5200.81, -160.329 )
+position = Vector2( 3171.81, -1.76753 )
 
 [node name="UFO2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 11361.7, -238.36 )
+position = Vector2( 11399.9, 613.174 )
 
 [node name="UFO3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 8276.77, -59.9616 )

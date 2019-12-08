@@ -9,6 +9,8 @@ const FLOOR = Vector2(0, -1)
 const ACCELERATION = 10
 const BREAKING = -20;
 
+var alive = true;
+
 var velocity = Vector2(0, 0)
 
 var is_jumping = false;
@@ -19,7 +21,9 @@ func _ready():
 	pass 
 
 func _process(delta):
-	if is_on_floor() and velocity.x < MIN_SPEED:
+	if !alive:
+		return
+	if velocity.x < MIN_SPEED:
 		velocity.x += ACCELERATION 
 		velocity = move_and_slide(velocity, FLOOR);
 		return
@@ -41,7 +45,7 @@ func _process(delta):
 	
 	velocity.y += GRAVITY;
 			
-	velocity = move_and_slide(velocity , FLOOR);
+	velocity = move_and_slide(velocity, FLOOR);
 	
 	var ground_y = get_node("RayCast2D").get_collision_point().y-75/2;
 	
@@ -49,10 +53,24 @@ func _process(delta):
 		position.y = ground_y;
 		is_jumping = false
 	pass
-
+	
+	
+func die():
+	velocity.x = 0;
+	
+func _on_hit(area_body):
+	if (alive && [4, 8, 16].has(area_body.collision_layer)):
+		die();
+		area_body.queue_free();
+	
 
 func _on_Hitbox_area_entered(area):
-	if (area.collision_layer == 4):
-		is_jumping = true;
-		velocity = move_and_slide(Vector2(-800, -300));
+	_on_hit(area);
+		#is_jumping = true;
+		#velocity = move_and_slide(Vector2(-800, -300));
+	pass # Replace with function body.
+
+
+func _on_Hitbox_body_entered(body):
+	_on_hit(body);
 	pass # Replace with function body.

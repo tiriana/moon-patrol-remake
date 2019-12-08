@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://scenes/enemies/UFO.gd" type="Script" id=1]
 [ext_resource path="res://scenes/enemies/Movement.gd" type="Script" id=2]
@@ -62,6 +62,7 @@
 [ext_resource path="res://assets/texture/UFO 1/UFO1__0057.png" type="Texture" id=60]
 [ext_resource path="res://assets/texture/UFO 1/UFO1__0058.png" type="Texture" id=61]
 [ext_resource path="res://assets/texture/UFO 1/UFO1__0059.png" type="Texture" id=62]
+[ext_resource path="res://scenes/enemies/weapons/LaserGun.tscn" type="PackedScene" id=63]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -90,11 +91,12 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Movement" type="Node2D" parent="Body"]
+position = Vector2( 14.6416, -28.2435 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 9
+frame = 21
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]
@@ -103,6 +105,10 @@ collision_mask = 34
 
 [node name="HitShape" type="CollisionPolygon2D" parent="Body/Movement/Hitbox"]
 polygon = PoolVector2Array( 19, -15.7, 45, -3.8, 45, 7.5, 39.5, 7.5, 31.5, 11.5, 21, 11.5, 21, 12.3, 15.8, 17.5, -15.8, 17.5, -21.8, 11.5, -31.2, 11.5, -43, 9.1, -43, -6.5, -37.5, -6.5, -19, -15.7, -19, -18.5, 19, -18.5 )
+
+[node name="LaserGun" parent="Body/Movement" instance=ExtResource( 63 )]
+rotation = 1.5708
+rate_of_fire = 3.0
 
 [node name="PlayerScanner" type="Area2D" parent="."]
 collision_layer = 0
