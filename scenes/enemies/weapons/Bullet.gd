@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 var initial_speed 
-export var speed = 400;
+export var speed = 300;
+onready var player = get_node("/root/World/Player");
 
 func _ready():
 	get_node("Sprite").modulate = Color(1, 0, 0) # blue shade
@@ -10,7 +11,14 @@ func _ready():
 func _process(delta):
 	if (!initial_speed):
 		return;
-	var bulletSpeed = Vector2(speed, 0).rotated(self.rotation) + Vector2(initial_speed.x, 0);
+	
+	if rotation > PI / 2:
+		rotation -= 1.5 * delta;
+	if rotation < PI / 2:
+		rotation += 1.5 * delta;
+	
+	
+	var bulletSpeed = Vector2(speed, 0).rotated(self.rotation) + Vector2(player.velocity.x * 0.8, 0);
 	
 	move_and_slide(bulletSpeed);
 	pass

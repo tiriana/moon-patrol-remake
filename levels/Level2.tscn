@@ -82,6 +82,7 @@ texture = ExtResource( 2 )
 
 [node name="Rocks" type="Node2D" parent="."]
 editor/display_folded = true
+position = Vector2( 25276, 17.618 )
 
 [node name="Rock" parent="Rocks" instance=ExtResource( 3 )]
 

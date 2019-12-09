@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const MIN_SPEED = 200
-const MAX_SPEED = 2000
+const MIN_SPEED = 1000
+const MAX_SPEED = 1500
 const INITIAL_SPEED = MIN_SPEED + 20
 const GRAVITY = 10
 const JUMP_POWER = -400
@@ -56,10 +56,15 @@ func _process(delta):
 	
 	
 func die():
-	velocity.x = 0;
+	position += Vector2(-3000, -20);
+	get_node("Camera2D").shake(0.5,30,300);
+	
+const ENEMY_BULLET	= 16;
+const ENEMY  =8;
+const ROCK = 4;
 	
 func _on_hit(area_body):
-	if (alive && [4, 8, 16].has(area_body.collision_layer)):
+	if (alive && [ROCK, ENEMY, ENEMY_BULLET].has(area_body.collision_layer)):
 		die();
 		area_body.queue_free();
 	

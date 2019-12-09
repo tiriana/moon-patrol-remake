@@ -91,12 +91,12 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Movement" type="Node2D" parent="Body"]
-position = Vector2( 14.6416, -28.2435 )
+position = Vector2( 375.033, -19.5498 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 21
+frame = 13
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]
@@ -107,7 +107,7 @@ collision_mask = 34
 polygon = PoolVector2Array( 19, -15.7, 45, -3.8, 45, 7.5, 39.5, 7.5, 31.5, 11.5, 21, 11.5, 21, 12.3, 15.8, 17.5, -15.8, 17.5, -21.8, 11.5, -31.2, 11.5, -43, 9.1, -43, -6.5, -37.5, -6.5, -19, -15.7, -19, -18.5, 19, -18.5 )
 
 [node name="LaserGun" parent="Body/Movement" instance=ExtResource( 63 )]
-rotation = 1.5708
+rotation = 36.9309
 rate_of_fire = 3.0
 
 [node name="PlayerScanner" type="Area2D" parent="."]

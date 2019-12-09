@@ -28,19 +28,23 @@ func _physics_process(delta):
 		return
 	
 	var desired_position = player.global_position - global_position;
-	desired_position += Vector2(200, -500) + pos_mod
+	desired_position += Vector2(200, -700) + pos_mod
 	var dir = desired_position.normalized()
 	
-	velocity = (dir * desired_position.length() * 2 * speed_mod );
+	velocity = (dir * desired_position.length() * 3.5 * speed_mod );
 	
 	move_and_collide(velocity * delta)
 	
 	#position.x = clamp(position.x, player.position.x - 100, player.position.x + 100);
 	#position.y = clamp(position.x, player.position.x - 100, player.position.x + 100)
 
-func _on_Player_entered(body):
+func activate():
 	active = true
 	laserGun.active = true;
+	laserGun.get_node("Trigger").start();
+	
+func _on_Player_entered(body):
+	activate();
 	
 	
 	#get_node("PlayerScanner").get_node("CollisionShape2D").disabled = true;
@@ -48,8 +52,7 @@ func _on_Player_entered(body):
 
 
 func _on_PlayerScanner_area_entered(area):
-	active = true;
-	laserGun.active = true;
+	activate();
 	
 	pass # Replace with function body.
 

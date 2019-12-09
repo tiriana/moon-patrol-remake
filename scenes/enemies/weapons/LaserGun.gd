@@ -1,25 +1,32 @@
 extends Node2D
+tool
 
 export var rate_of_fire = 0.5;
 export var fire_chance = 0.9;
 var active = false;
 
+var t = 0;
+var rotator = Vector2(PI / 3,0 );
+
 func _ready():
 	get_node("Trigger").wait_time = rate_of_fire;
 	pass # Replace with function body.
 
-#func _process(delta):
-#	pass
+func _process(delta):
+	rotator = rotator.rotated(1.5 * delta);
+	get_node("Rotator").rotation = 90 + rotator.y;	
+	pass
 
 func roll_the_dice():
 	return randf() < fire_chance; 
 
 func fire():
-	var bullet = get_node("Bullet").duplicate();
+	var bullet = get_node("Rotator/Bullet").duplicate();
 	bullet.visible = true;
 	get_tree().get_root().get_node("World").add_child(bullet);
 	var transform = get_global_transform()
 	bullet.transform = get_global_transform();
+	bullet.rotation += get_node("Rotator").rotation;
 	bullet.initial_speed = get_tree().get_root().get_node("World").get_node("Player").velocity;
 
 func _on_Trigger_timeout():
