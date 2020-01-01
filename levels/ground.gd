@@ -1,5 +1,4 @@
 extends Node2D
-tool
 
 # Declare member variables here. Examples:
 # var a = 2

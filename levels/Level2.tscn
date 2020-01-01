@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://levels/Level2.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/background/SpaceBackground1.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/rocks/RockBase.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemies/UFO.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/Ground1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/Checkpoint.tscn" type="PackedScene" id=11]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,13 +28,11 @@ scale = Vector2( 1.82445, 1.82445 )
 texture = ExtResource( 2 )
 
 [node name="DistanePlanets" type="ParallaxLayer" parent="ParallaxBackground"]
-editor/display_folded = true
 motion_scale = Vector2( 0.002, 1 )
 motion_mirroring = Vector2( 5000, 0 )
 
 [node name="planet" type="Sprite" parent="ParallaxBackground/DistanePlanets"]
-modulate = Color( 0.152941, 0.152941, 0.152941, 1 )
-position = Vector2( -83.3713, 19.6167 )
+position = Vector2( 1919.61, 19.6167 )
 texture = ExtResource( 3 )
 
 [node name="VeryFarMountains" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -138,3 +137,119 @@ position = Vector2( 11399.9, 613.174 )
 position = Vector2( 8276.77, -59.9616 )
 
 [node name="ground" parent="." instance=ExtResource( 10 )]
+
+[node name="Sections" type="Node" parent="."]
+
+[node name="AE" type="Node2D" parent="Sections"]
+position = Vector2( 0, 948 )
+
+[node name="Checkpoints" type="Node2D" parent="Sections/AE"]
+
+[node name="A" parent="Sections/AE/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 159.515, 19.1124 )
+letter = "A"
+
+[node name="B" parent="Sections/AE/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 10000, 31.141 )
+letter = "B"
+
+[node name="C" parent="Sections/AE/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 20000, 31.141 )
+letter = "C"
+
+[node name="E" parent="Sections/AE/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 30000, 31.141 )
+letter = "E"
+isMilestone = true
+
+[node name="FJ" type="Node2D" parent="Sections"]
+position = Vector2( 40000, 0 )
+
+[node name="Checkpoints" type="Node2D" parent="Sections/FJ"]
+position = Vector2( -40000, 948 )
+
+[node name="A" parent="Sections/FJ/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 159.515, 19.1124 )
+letter = "A"
+
+[node name="B" parent="Sections/FJ/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 10000, 31.141 )
+letter = "B"
+
+[node name="C" parent="Sections/FJ/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 20000, 31.141 )
+letter = "C"
+
+[node name="E" parent="Sections/FJ/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 30000, 31.141 )
+letter = "E"
+isMilestone = true
+
+[node name="KO" type="Node2D" parent="Sections"]
+position = Vector2( 80000, 0 )
+
+[node name="Checkpoints" type="Node2D" parent="Sections/KO"]
+position = Vector2( -80000, 948 )
+
+[node name="A" parent="Sections/KO/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 159.515, 19.1124 )
+letter = "A"
+
+[node name="B" parent="Sections/KO/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 10000, 31.141 )
+letter = "B"
+
+[node name="C" parent="Sections/KO/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 20000, 31.141 )
+letter = "C"
+
+[node name="E" parent="Sections/KO/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 30000, 31.141 )
+letter = "E"
+isMilestone = true
+
+[node name="PT" type="Node2D" parent="Sections"]
+position = Vector2( 12000, 0 )
+
+[node name="Checkpoints" type="Node2D" parent="Sections/PT"]
+position = Vector2( -12000, 948 )
+
+[node name="A" parent="Sections/PT/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 159.515, 19.1124 )
+letter = "A"
+
+[node name="B" parent="Sections/PT/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 10000, 31.141 )
+letter = "B"
+
+[node name="C" parent="Sections/PT/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 20000, 31.141 )
+letter = "C"
+
+[node name="E" parent="Sections/PT/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 30000, 31.141 )
+letter = "E"
+isMilestone = true
+
+[node name="UZ" type="Node2D" parent="Sections"]
+position = Vector2( 16000, 0 )
+
+[node name="Checkpoints" type="Node2D" parent="Sections/UZ"]
+position = Vector2( -16000, 948 )
+
+[node name="A" parent="Sections/UZ/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 159.515, 19.1124 )
+letter = "A"
+
+[node name="B" parent="Sections/UZ/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 10000, 31.141 )
+letter = "B"
+
+[node name="C" parent="Sections/UZ/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 20000, 31.141 )
+letter = "C"
+
+[node name="E" parent="Sections/UZ/Checkpoints" instance=ExtResource( 11 )]
+position = Vector2( 30000, 31.141 )
+letter = "E"
+isMilestone = true

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://levels/Checkpoint.gd" type="Script" id=1]
+[ext_resource path="res://assets/texture/UI/Dialog Box.png" type="Texture" id=2]
+[ext_resource path="res://assets/font/ardestine.tres" type="DynamicFont" id=3]
+
+[sub_resource type="RayShape2D" id=1]
+length = 1081.06
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Letter" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 24.4102, 23.8555 )
+
+[node name="BG" type="Sprite" parent="Letter"]
+scale = Vector2( 0.112756, 0.553218 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Letter"]
+margin_left = -50.408
+margin_top = -50.9776
+margin_right = 49.592
+margin_bottom = 49.0224
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+text = "X
+"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+uppercase = true
+
+[node name="PlayerScanner" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScanner"]
+position = Vector2( 51.2207, -884.592 )
+shape = SubResource( 1 )
+[connection signal="area_entered" from="PlayerScanner" to="." method="_on_PlayerScanner_area_entered"]
+[connection signal="body_entered" from="PlayerScanner" to="." method="_on_PlayerScanner_body_entered"]
