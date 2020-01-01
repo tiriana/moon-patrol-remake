@@ -24,6 +24,11 @@ func _stick_to_the_ground():
 func _process(delta):
 	if !alive:
 		return
+		
+	if Input.is_action_pressed("ui_up") and not is_jumping:
+		velocity.y = JUMP_POWER;
+		is_jumping = true;
+	velocity.y += GRAVITY;
 	
 	if velocity.x < MIN_SPEED:
 		velocity.x += ACCELERATION 
@@ -41,11 +46,7 @@ func _process(delta):
 	if (not is_jumping):
 		velocity.x = clamp(velocity.x, MIN_SPEED, MAX_SPEED)
 	
-	if Input.is_action_pressed("ui_up") and not is_jumping:
-		velocity.y = JUMP_POWER;
-		is_jumping = true;
 	
-	velocity.y += GRAVITY;
 			
 	velocity = move_and_slide(velocity, FLOOR);
 	
