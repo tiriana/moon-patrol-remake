@@ -15,7 +15,7 @@ script = ExtResource( 1 )
 wait_time = 0.5
 
 [node name="Rotator" type="Node2D" parent="."]
-rotation = 89.886
+rotation = 89.0278
 
 [node name="Bullet" type="KinematicBody2D" parent="Rotator"]
 visible = false

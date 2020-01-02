@@ -1,5 +1,6 @@
 extends Node2D
 signal checkpoint
+signal points
 
 func _ready():
 	randomize()
@@ -7,7 +8,15 @@ func _ready():
 	for section in get_node("Sections").get_children():
 		for checkpoint in section.get_node("Checkpoints").get_children():
 			checkpoint.connect("checkpoint", self, "_on_checkpoint")
+		if (section.get_node("Rocks")):
+			for rock in section.get_node("Rocks").get_children():
+				rock.connect("points", self, "_on_points")
+		if (section.get_node("Enemies")):
+			for enemy in section.get_node("Enemies").get_children():
+				enemy.connect("points", self, "_on_points")
 
 func _on_checkpoint(checkpoint):
 	emit_signal("checkpoint", checkpoint);
-	pass # Replace with function body.
+
+func _on_points(points, transform):
+	emit_signal("points", points, transform);

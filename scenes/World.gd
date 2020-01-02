@@ -1,18 +1,22 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var points = 0;
+onready var HUD = get_node("UI/HUD");
+export (PackedScene) var PointsIndicator;
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Level_checkpoint(checkpoint):
 	get_node("Player").respawn_x = checkpoint.global_position.x;
-	pass # Replace with function body.
+
+
+func _on_Level_points(_points, transform):
+	points += _points;
+	HUD.set_points(points);
+	
+	var node = PointsIndicator.instance();
+	node.get_node("Label").set_text(String(_points));
+	node.transform = transform;
+	add_child(node);
+	node.visible = true;

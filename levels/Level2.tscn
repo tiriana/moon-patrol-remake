@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/Level2.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/background/SpaceBackground1.png" type="Texture" id=2]
@@ -8,9 +8,12 @@
 [ext_resource path="res://assets/texture/background/city_background_clean.png" type="Texture" id=6]
 [ext_resource path="res://assets/texture/background/parallax-mountain-mountains.png" type="Texture" id=7]
 [ext_resource path="res://levels/Ground1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/enemies/UFO.tscn" type="PackedScene" id=9]
-[ext_resource path="res://levels/Checkpoint.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/rocks/RockBase.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/Checkpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/rocks/Rock_base.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/rocks/Rock_1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/rocks/Rock_small.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/rocks/Rock_2_DOUBLE.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/enemies/UFO.tscn" type="PackedScene" id=14]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
@@ -78,213 +81,193 @@ texture = ExtResource( 7 )
 offset = Vector2( 1300, 1079.89 )
 
 [node name="ground" parent="." instance=ExtResource( 8 )]
+z_index = 0
 
 [node name="Sections" type="Node" parent="."]
 
 [node name="AE" type="Node2D" parent="Sections"]
 position = Vector2( 0, 948 )
 
-[node name="UFO2" parent="Sections/AE" instance=ExtResource( 9 )]
-position = Vector2( 2070.23, -2000 )
-
-[node name="UFO" parent="Sections/AE" instance=ExtResource( 9 )]
-position = Vector2( 5000, -2000 )
-
-[node name="UFO3" parent="Sections/AE" instance=ExtResource( 9 )]
-position = Vector2( 8276.77, -2000 )
-
 [node name="Checkpoints" type="Node2D" parent="Sections/AE"]
-editor/display_folded = true
 
-[node name="A" parent="Sections/AE/Checkpoints" instance=ExtResource( 10 )]
-position = Vector2( 159.515, 19.1124 )
+[node name="A" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
+position = Vector2( 2000, 19.112 )
 letter = "A"
 
-[node name="B" parent="Sections/AE/Checkpoints" instance=ExtResource( 10 )]
+[node name="B" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
 letter = "B"
 
-[node name="C" parent="Sections/AE/Checkpoints" instance=ExtResource( 10 )]
+[node name="C" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
 letter = "C"
 
-[node name="D" parent="Sections/AE/Checkpoints" instance=ExtResource( 10 )]
+[node name="D" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
 letter = "C"
 
-[node name="E" parent="Sections/AE/Checkpoints" instance=ExtResource( 10 )]
+[node name="E" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
 letter = "E"
 isMilestone = true
 
-[node name="Rock" parent="Sections/AE" instance=ExtResource( 11 )]
-position = Vector2( 424.463, 49.6201 )
+[node name="Rocks" type="Node2D" parent="Sections/AE"]
+editor/display_folded = true
+
+[node name="Rock" parent="Sections/AE/Rocks" instance=ExtResource( 10 )]
+position = Vector2( 640.878, 23.0766 )
+
+[node name="Rock6" parent="Sections/AE/Rocks" instance=ExtResource( 10 )]
+position = Vector2( 11895.7, 36.0729 )
+
+[node name="Rock2" parent="Sections/AE/Rocks" instance=ExtResource( 11 )]
+position = Vector2( 3133.06, 32.2995 )
+
+[node name="Rock4" parent="Sections/AE/Rocks" instance=ExtResource( 11 )]
+position = Vector2( 14387.9, 45.2958 )
+
+[node name="Rock3" parent="Sections/AE/Rocks" instance=ExtResource( 12 )]
+position = Vector2( 8744.18, -19.6169 )
+
+[node name="Rock5" parent="Sections/AE/Rocks" instance=ExtResource( 12 )]
+position = Vector2( 19999, -6.62056 )
+
+[node name="Rock Double" parent="Sections/AE/Rocks" instance=ExtResource( 13 )]
+position = Vector2( 6623.17, -57.0419 )
+
+[node name="Rock Double2" parent="Sections/AE/Rocks" instance=ExtResource( 13 )]
+position = Vector2( 17878, -44.0456 )
+
+[node name="Enemies" type="Node2D" parent="Sections/AE"]
+
+[node name="UFO2" parent="Sections/AE/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 2070.23, -2000 )
+
+[node name="UFO" parent="Sections/AE/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 5000, -2000 )
+
+[node name="UFO3" parent="Sections/AE/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 8276.77, -2000 )
 
 [node name="FJ" type="Node2D" parent="Sections"]
+editor/display_folded = true
 position = Vector2( 50000, 0 )
 
 [node name="Checkpoints" type="Node2D" parent="Sections/FJ"]
 editor/display_folded = true
 position = Vector2( 0, 948 )
 
-[node name="F" parent="Sections/FJ/Checkpoints" instance=ExtResource( 10 )]
+[node name="F" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 0, 19.112 )
 letter = "F"
 
-[node name="G" parent="Sections/FJ/Checkpoints" instance=ExtResource( 10 )]
+[node name="G" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
 letter = "G"
 
-[node name="H" parent="Sections/FJ/Checkpoints" instance=ExtResource( 10 )]
+[node name="H" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
 letter = "H"
 
-[node name="I" parent="Sections/FJ/Checkpoints" instance=ExtResource( 10 )]
+[node name="I" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
 letter = "I"
 isMilestone = true
 
-[node name="J" parent="Sections/FJ/Checkpoints" instance=ExtResource( 10 )]
+[node name="J" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
 letter = "J"
 isMilestone = true
 
 [node name="KO" type="Node2D" parent="Sections"]
+editor/display_folded = true
 position = Vector2( 100000, 0 )
 
 [node name="Checkpoints" type="Node2D" parent="Sections/KO"]
 editor/display_folded = true
 position = Vector2( 0, 948 )
 
-[node name="K" parent="Sections/KO/Checkpoints" instance=ExtResource( 10 )]
+[node name="K" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 0, 19.112 )
 letter = "K"
 
-[node name="L" parent="Sections/KO/Checkpoints" instance=ExtResource( 10 )]
+[node name="L" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
 letter = "L"
 
-[node name="M" parent="Sections/KO/Checkpoints" instance=ExtResource( 10 )]
+[node name="M" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
 letter = "M"
 
-[node name="N" parent="Sections/KO/Checkpoints" instance=ExtResource( 10 )]
+[node name="N" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
 letter = "N"
 isMilestone = true
 
-[node name="O" parent="Sections/KO/Checkpoints" instance=ExtResource( 10 )]
+[node name="O" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
 letter = "O"
 isMilestone = true
 
 [node name="PT" type="Node2D" parent="Sections"]
+editor/display_folded = true
 position = Vector2( 150000, 0 )
 
 [node name="Checkpoints" type="Node2D" parent="Sections/PT"]
 editor/display_folded = true
 position = Vector2( 0, 948 )
 
-[node name="P" parent="Sections/PT/Checkpoints" instance=ExtResource( 10 )]
+[node name="P" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 0, 19.112 )
 letter = "P"
 
-[node name="Q" parent="Sections/PT/Checkpoints" instance=ExtResource( 10 )]
+[node name="Q" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
 letter = "Q"
 
-[node name="R" parent="Sections/PT/Checkpoints" instance=ExtResource( 10 )]
+[node name="R" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
 letter = "R"
 
-[node name="S" parent="Sections/PT/Checkpoints" instance=ExtResource( 10 )]
+[node name="S" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
 letter = "S"
 isMilestone = true
 
-[node name="T" parent="Sections/PT/Checkpoints" instance=ExtResource( 10 )]
+[node name="T" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
 letter = "T"
 isMilestone = true
 
 [node name="UZ" type="Node2D" parent="Sections"]
+editor/display_folded = true
 position = Vector2( 200000, 0 )
 
 [node name="Checkpoints" type="Node2D" parent="Sections/UZ"]
 editor/display_folded = true
 position = Vector2( -50000, 948 )
 
-[node name="U" parent="Sections/UZ/Checkpoints" instance=ExtResource( 10 )]
+[node name="U" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 0, 19.112 )
 letter = "U"
 
-[node name="V" parent="Sections/UZ/Checkpoints" instance=ExtResource( 10 )]
+[node name="V" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
 letter = "V"
 
-[node name="W" parent="Sections/UZ/Checkpoints" instance=ExtResource( 10 )]
+[node name="W" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
 letter = "W"
 
-[node name="X" parent="Sections/UZ/Checkpoints" instance=ExtResource( 10 )]
+[node name="X" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
 isMilestone = true
 
-[node name="Y" parent="Sections/UZ/Checkpoints" instance=ExtResource( 10 )]
+[node name="Y" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
 letter = "Y"
 
-[node name="Z" parent="Sections/UZ/Checkpoints" instance=ExtResource( 10 )]
+[node name="Z" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 50000, 31.141 )
 letter = "Z"
 isMilestone = true
-
-[node name="temp" type="Node2D" parent="."]
-
-[node name="Rocks" type="Node2D" parent="temp"]
-position = Vector2( 25271.1, -26.5196 )
-
-[node name="Rock12" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 8390.88, 990.823 )
-
-[node name="Rock8" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 4682.9, 1032.96 )
-
-[node name="Rock13" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 11874.1, 962.733 )
-
-[node name="Rock4" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 2658.78, 1041.62 )
-
-[node name="Rock10" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 9850, 971.397 )
-
-[node name="Rock6" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 6142.03, 1013.53 )
-
-[node name="Rock15" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 13333.3, 943.306 )
-
-[node name="Rock2" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 1889.86, 1039.57 )
-
-[node name="Rock9" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 9081.09, 969.344 )
-
-[node name="Rock5" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 5373.11, 1011.48 )
-
-[node name="Rock16" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 12564.3, 941.253 )
-
-[node name="Rock3" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 3348.99, 1020.14 )
-
-[node name="Rock11" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 10540.2, 949.917 )
-
-[node name="Rock7" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 6832.24, 992.054 )
-
-[node name="Rock14" parent="temp/Rocks" instance=ExtResource( 11 )]
-position = Vector2( 14023.5, 921.827 )

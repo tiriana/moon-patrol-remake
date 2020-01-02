@@ -92,7 +92,6 @@ script = ExtResource( 1 )
 visible = false
 
 [node name="Body" type="CollisionShape2D" parent="."]
-editor/display_folded = true
 shape = SubResource( 1 )
 
 [node name="Movement" type="Node2D" parent="Body"]
@@ -101,7 +100,7 @@ script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 12
+frame = 19
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]
