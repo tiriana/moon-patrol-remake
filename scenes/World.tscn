@@ -11,6 +11,7 @@ script = ExtResource( 1 )
 position = Vector2( -1407.51, 887.716 )
 
 [node name="Level" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0
@@ -19,5 +20,6 @@ margin_bottom = 40.0
 [node name="MilestoneScreen" type="Control" parent="UI"]
 margin_right = 40.0
 margin_bottom = 40.0
+[connection signal="checkpoint" from="Level" to="." method="_on_Level_checkpoint"]
 
 [editable path="Level"]

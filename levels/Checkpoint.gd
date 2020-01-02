@@ -15,7 +15,7 @@ func _ready():
 	pass # Replace with function body.
 	
 func activate():
-	emit_signal("checkpoint");
+	emit_signal("checkpoint", self);
 	get_node("Letter/Label").add_color_override("font_color", Color(1,1,1))
 
 func _on_PlayerScanner_body_entered(body):

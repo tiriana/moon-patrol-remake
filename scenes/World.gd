@@ -11,3 +11,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Level_checkpoint(checkpoint):
+	get_node("Player").respawn_x = checkpoint.global_position.x;
+	pass # Replace with function body.

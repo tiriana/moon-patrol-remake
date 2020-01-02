@@ -1,18 +1,39 @@
 extends KinematicBody2D
 
-const MIN_SPEED = 1000
-const MAX_SPEED = 1500
-const INITIAL_SPEED = MIN_SPEED + 20
+const MIN_SPEED = 500
+const MAX_SPEED = 1000
+
+const INITIAL_SPEED = MIN_SPEED
 const GRAVITY = 10
 const JUMP_POWER = -400
 const FLOOR = Vector2(0, -1)
-const ACCELERATION = 10
-const BREAKING = -20;
+const ACCELERATION = 5
+const BREAKING = -5;
 
+onready var camera = get_node("Camera2D");
 onready var alive = true;
-onready var velocity = Vector2(0, 0)
+onready var velocity = Vector2(INITIAL_SPEED, 0)
 onready var is_jumping = false;
 onready var reached_min_speed = false
+onready var respawn_x = 0;
+
+func _ready():
+	get_node("VisibleCar/GunFront").gun_holder = self;
+	get_node("VisibleCar/GunFront").world = get_parent();
+	get_node("VisibleCar/GunTop").gun_holder = self;
+	get_node("VisibleCar/GunTop").world = get_parent();
+
+func car_offset(x):
+	var X0 = MIN_SPEED;
+	var Y0 = 0;
+	
+	var X1 = MAX_SPEED;
+	var Y1 = 500;
+	
+	var m = 1.0 * (Y1 - Y0) / (X1 - X0);
+	var b = Y1 - m * X1; 
+		
+	return clamp(m * x + b, 0, Y1);
 
 func _stick_to_the_ground():
 	var ground_y = get_node("GroundScanner").get_collision_point().y-75/2;
@@ -30,6 +51,8 @@ func _process(delta):
 		is_jumping = true;
 	velocity.y += GRAVITY;
 	
+	get_node("VisibleCar").position.x = car_offset(velocity.x);
+	
 	if velocity.x < MIN_SPEED:
 		velocity.x += ACCELERATION 
 		velocity = move_and_slide(velocity, FLOOR);
@@ -45,19 +68,28 @@ func _process(delta):
 	
 	if (not is_jumping):
 		velocity.x = clamp(velocity.x, MIN_SPEED, MAX_SPEED)
-	
-	
 			
 	velocity = move_and_slide(velocity, FLOOR);
 	
 	_stick_to_the_ground();
-	
+
+func respawn():
+	var x = respawn_x - 1500;
+	position.x = clamp(x, 0, x);
+	stop_blinking();
+	_ready();	
+	self.pause_mode = Node.PAUSE_MODE_INHERIT;
+	get_parent().get_tree().paused = false;
+
 func die():
 	alive = false;
 	velocity.x = 0;
 	_stick_to_the_ground();
 	start_blinking();
 	get_node("RespawnTimer").start()
+	
+	self.pause_mode = Node.PAUSE_MODE_PROCESS;
+	get_parent().get_tree().paused = true;
 	
 const ENEMY_BULLET	= 16;
 const ENEMY  =8;
@@ -66,7 +98,7 @@ const ROCK = 4;
 func _on_hit(area_body):
 	if (alive && [ROCK, ENEMY, ENEMY_BULLET].has(area_body.collision_layer)):
 		die();
-		area_body.queue_free();
+		area_body.get_parent().queue_free();
 
 func _on_Hitbox_area_entered(area):
 	_on_hit(area);
@@ -83,11 +115,7 @@ func stop_blinking():
 	visible = true;
 
 func _on_RespawnTimer_timeout():
-	position.x -= 1500;
-	stop_blinking();
-	_ready();
-	pass # Replace with function body.
-
+	respawn();
 
 func _on_BlinkingTimer_timeout():
 	visible = !visible;

@@ -1,5 +1,8 @@
 extends Node2D
 
+var gun_holder;
+var world;
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -17,10 +20,10 @@ func fire():
 	if (!can_shot):
 		return
 	var bullet = BulletBigScene.instance();
-	get_parent().get_parent().add_child(bullet);
+	world.add_child(bullet);
 	var transform = get_global_transform()
 	bullet.transform = get_global_transform();
-	bullet.initial_speed = get_parent().velocity;
+	bullet.initial_speed = gun_holder.velocity;
 	can_shot = false;
 	get_node("RateOfFire").start();
 	pass

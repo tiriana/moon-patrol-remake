@@ -31,7 +31,9 @@ func _physics_process(delta):
 	desired_position += Vector2(200, -700) + pos_mod
 	var dir = desired_position.normalized()
 	
-	velocity = (dir * desired_position.length() * 3.5 * speed_mod );
+	velocity = (dir * desired_position.length() * 3.5 * speed_mod);
+	
+	velocity.x = clamp(velocity.x, -500, 1000);
 	
 	move_and_collide(velocity * delta)
 	
@@ -42,6 +44,7 @@ func activate():
 	active = true
 	laserGun.active = true;
 	laserGun.get_node("Trigger").start();
+	remove_child(get_node("PlayerScanner"));
 	
 func _on_Player_entered(body):
 	activate();

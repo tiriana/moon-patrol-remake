@@ -1,21 +1,13 @@
 extends Node2D
-tool
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal checkpoint
 
-#var Ground = preload("res://levels/Ground1.tscn");
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	
-	#for i in range(0, 20):
-	#	var ground = Ground.instance();
-	#	ground.position.x = ground.get_node("Sprite").texture.get_size().x * i;
-	#	add_child(ground);
-	pass # Replace with function body.
+	for section in get_node("Sections").get_children():
+		for checkpoint in section.get_node("Checkpoints").get_children():
+			checkpoint.connect("checkpoint", self, "_on_checkpoint")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_checkpoint(checkpoint):
+	emit_signal("checkpoint", checkpoint);
+	pass # Replace with function body.
