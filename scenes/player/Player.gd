@@ -97,6 +97,8 @@ func die():
 	self.pause_mode = Node.PAUSE_MODE_PROCESS;
 	get_parent().get_tree().paused = true;
 	
+	get_node("Camera2D").shake(0.5, 75, 150);
+	
 const ENEMY_BULLET	= 16;
 const ENEMY  =8;
 const ROCK = 4;
