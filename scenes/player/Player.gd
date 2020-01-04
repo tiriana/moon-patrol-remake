@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal respawned;
+
 const MIN_SPEED = 500
 const MAX_SPEED = 1000
 
@@ -83,6 +85,7 @@ func respawn():
 	_ready();	
 	self.pause_mode = Node.PAUSE_MODE_INHERIT;
 	get_parent().get_tree().paused = false;
+	emit_signal("respawned");
 
 func die():
 	alive = false;

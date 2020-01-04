@@ -10,7 +10,6 @@ func _ready():
 func _on_Level_checkpoint(checkpoint):
 	get_node("Player").respawn_x = checkpoint.global_position.x;
 
-
 func _on_Level_points(_points, transform):
 	points += _points;
 	HUD.set_points(points);
@@ -20,3 +19,8 @@ func _on_Level_points(_points, transform):
 	node.transform = transform;
 	add_child(node);
 	node.visible = true;
+
+
+func _on_Player_respawned():
+	for child in get_node("DynamicObjects").get_children():
+		child.queue_free();

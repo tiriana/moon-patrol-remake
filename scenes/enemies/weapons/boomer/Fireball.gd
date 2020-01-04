@@ -32,16 +32,14 @@ func _process(delta):
 func _on_Fireball_ignited():
 	get_node("AnimatedSprite").animation = "default";
 
-func _on_hit_the_ground(body):
-	#var hole = Hole.instance();
-	#get_parent().add_child(hole);
-	#hole.transform = get_global_transform();
-	#hole.rotation = 0;
-	queue_free();
-
-func _on_Area2D_area_entered(area):
-	#var hole = Hole.instance();
-	#get_parent().add_child(hole);
-	#hole.transform = get_global_transform();
-	#hole.rotation = 0;
+func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
+	var world = get_tree().get_root().get_node("World");
+	var hole = Hole.instance();
+	hole.z_index = 2;
+	world.get_node("DynamicObjects").add_child(hole);
+	hole.transform = get_global_transform();
+	hole.rotation = 0;
+	
+	hole.connect("points", world, "_on_Level_points")
+	
 	queue_free();

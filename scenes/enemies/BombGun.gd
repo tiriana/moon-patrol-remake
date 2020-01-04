@@ -1,7 +1,7 @@
 extends Node2D
 
-export var rate_of_fire = 0.5;
-export var fire_chance = 0.5;
+export var rate_of_fire = 5.3;
+export var fire_chance = 0.9;
 var active = false;
 export (PackedScene) var Fireball;
 
