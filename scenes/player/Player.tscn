@@ -15,8 +15,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 25.7038
-height = 115.309
+radius = 37.3
+height = 113.467
 
 [sub_resource type="RayShape2D" id=3]
 length = 1860.19
@@ -51,18 +51,21 @@ script = ExtResource( 2 )
 rotation = -1.5708
 
 [node name="GunFront" parent="VisibleCar" instance=ExtResource( 4 )]
+position = Vector2( 64.6611, 7.69917 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="VisibleCar"]
-editor/display_folded = true
 frames = SubResource( 1 )
 
 [node name="Hitbox" type="Area2D" parent="VisibleCar/AnimatedSprite"]
-editor/display_folded = true
 collision_mask = 28
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleCar/AnimatedSprite/Hitbox"]
+visible = false
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="VisibleCar/AnimatedSprite"]
+texture = ExtResource( 5 )
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 3.0

@@ -1,5 +1,4 @@
 extends Node2D
-tool
 
 export var rate_of_fire = 0.5;
 export var fire_chance = 0.9;

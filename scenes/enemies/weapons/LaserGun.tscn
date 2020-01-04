@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/enemies/weapons/LaserGun.gd" type="Script" id=1]
 [ext_resource path="res://scenes/enemies/weapons/Bullet.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://assets/texture/ak47.png" type="Texture" id=4]
+[ext_resource path="res://assets/texture/weapons/3.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.69008, 7.98421 )
@@ -15,7 +15,7 @@ script = ExtResource( 1 )
 wait_time = 0.5
 
 [node name="Rotator" type="Node2D" parent="."]
-rotation = 89.0278
+rotation = 88.9531
 
 [node name="Bullet" type="KinematicBody2D" parent="Rotator"]
 visible = false
@@ -33,6 +33,6 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Rotator"]
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( 0.16353, 0.16353 )
 texture = ExtResource( 4 )
 [connection signal="timeout" from="Trigger" to="." method="_on_Trigger_timeout"]

@@ -25,8 +25,8 @@ func _on_RockBase_body_entered(body):
 	queue_free();
 	body.queue_free();
 
-func _on_RockBase_area_entered(area):
-	queue_free();
+#func _on_RockBase_area_entered(area):
+#	queue_free();
 
 func _on_overTheTop_area_entered(area):
 	emit_signal("points", jump_points, get_global_transform());

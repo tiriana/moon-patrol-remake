@@ -3,79 +3,79 @@
 [ext_resource path="res://scenes/enemies/UFO.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Destructable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/enemies/Movement.gd" type="Script" id=3]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0000.png" type="Texture" id=4]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0001.png" type="Texture" id=5]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0002.png" type="Texture" id=6]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0003.png" type="Texture" id=7]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0004.png" type="Texture" id=8]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0005.png" type="Texture" id=9]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0006.png" type="Texture" id=10]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0007.png" type="Texture" id=11]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0008.png" type="Texture" id=12]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0009.png" type="Texture" id=13]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0010.png" type="Texture" id=14]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0011.png" type="Texture" id=15]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0012.png" type="Texture" id=16]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0013.png" type="Texture" id=17]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0014.png" type="Texture" id=18]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0015.png" type="Texture" id=19]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0016.png" type="Texture" id=20]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0017.png" type="Texture" id=21]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0018.png" type="Texture" id=22]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0019.png" type="Texture" id=23]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0020.png" type="Texture" id=24]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0021.png" type="Texture" id=25]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0022.png" type="Texture" id=26]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0023.png" type="Texture" id=27]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0024.png" type="Texture" id=28]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0025.png" type="Texture" id=29]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0026.png" type="Texture" id=30]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0027.png" type="Texture" id=31]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0028.png" type="Texture" id=32]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0029.png" type="Texture" id=33]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0030.png" type="Texture" id=34]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0031.png" type="Texture" id=35]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0032.png" type="Texture" id=36]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0033.png" type="Texture" id=37]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0034.png" type="Texture" id=38]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0035.png" type="Texture" id=39]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0036.png" type="Texture" id=40]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0037.png" type="Texture" id=41]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0038.png" type="Texture" id=42]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0039.png" type="Texture" id=43]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0040.png" type="Texture" id=44]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0041.png" type="Texture" id=45]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0042.png" type="Texture" id=46]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0043.png" type="Texture" id=47]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0044.png" type="Texture" id=48]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0045.png" type="Texture" id=49]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0046.png" type="Texture" id=50]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0047.png" type="Texture" id=51]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0048.png" type="Texture" id=52]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0049.png" type="Texture" id=53]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0050.png" type="Texture" id=54]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0051.png" type="Texture" id=55]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0052.png" type="Texture" id=56]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0053.png" type="Texture" id=57]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0054.png" type="Texture" id=58]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0055.png" type="Texture" id=59]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0056.png" type="Texture" id=60]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0057.png" type="Texture" id=61]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0058.png" type="Texture" id=62]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0059.png" type="Texture" id=63]
-[ext_resource path="res://scenes/enemies/weapons/LaserGun.tscn" type="PackedScene" id=64]
+[ext_resource path="res://scenes/enemies/weapons/LaserGun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0000.png" type="Texture" id=5]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0001.png" type="Texture" id=6]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0002.png" type="Texture" id=7]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0003.png" type="Texture" id=8]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0004.png" type="Texture" id=9]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0005.png" type="Texture" id=10]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0006.png" type="Texture" id=11]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0007.png" type="Texture" id=12]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0008.png" type="Texture" id=13]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0009.png" type="Texture" id=14]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0010.png" type="Texture" id=15]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0011.png" type="Texture" id=16]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0012.png" type="Texture" id=17]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0013.png" type="Texture" id=18]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0014.png" type="Texture" id=19]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0015.png" type="Texture" id=20]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0016.png" type="Texture" id=21]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0017.png" type="Texture" id=22]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0018.png" type="Texture" id=23]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0019.png" type="Texture" id=24]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0020.png" type="Texture" id=25]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0021.png" type="Texture" id=26]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0022.png" type="Texture" id=27]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0023.png" type="Texture" id=28]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0024.png" type="Texture" id=29]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0025.png" type="Texture" id=30]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0026.png" type="Texture" id=31]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0027.png" type="Texture" id=32]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0028.png" type="Texture" id=33]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0029.png" type="Texture" id=34]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0030.png" type="Texture" id=35]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0031.png" type="Texture" id=36]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0032.png" type="Texture" id=37]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0033.png" type="Texture" id=38]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0034.png" type="Texture" id=39]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0035.png" type="Texture" id=40]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0036.png" type="Texture" id=41]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0037.png" type="Texture" id=42]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0038.png" type="Texture" id=43]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0039.png" type="Texture" id=44]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0040.png" type="Texture" id=45]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0041.png" type="Texture" id=46]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0042.png" type="Texture" id=47]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0043.png" type="Texture" id=48]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0044.png" type="Texture" id=49]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0045.png" type="Texture" id=50]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0046.png" type="Texture" id=51]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0047.png" type="Texture" id=52]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0048.png" type="Texture" id=53]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0049.png" type="Texture" id=54]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0050.png" type="Texture" id=55]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0051.png" type="Texture" id=56]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0052.png" type="Texture" id=57]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0053.png" type="Texture" id=58]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0054.png" type="Texture" id=59]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0055.png" type="Texture" id=60]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0056.png" type="Texture" id=61]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0057.png" type="Texture" id=62]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0058.png" type="Texture" id=63]
+[ext_resource path="res://assets/texture/UFO 1/UFO1__0059.png" type="Texture" id=64]
 
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
 "loop": true,
 "name": "default",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ) ],
-"loop": true,
+"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ) ],
+"loop": false,
 "name": "boom",
 "speed": 25.0
 } ]
@@ -98,9 +98,13 @@ shape = SubResource( 1 )
 position = Vector2( 375.033, -19.5498 )
 script = ExtResource( 3 )
 
+[node name="LaserGun" parent="Body/Movement" instance=ExtResource( 4 )]
+rotation = -0.768211
+rate_of_fire = 3.0
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 19
+frame = 13
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]
@@ -110,10 +114,6 @@ collision_mask = 34
 [node name="HitShape" type="CollisionPolygon2D" parent="Body/Movement/Hitbox"]
 polygon = PoolVector2Array( 19, -15.7, 45, -3.8, 45, 7.5, 39.5, 7.5, 31.5, 11.5, 21, 11.5, 21, 12.3, 15.8, 17.5, -15.8, 17.5, -21.8, 11.5, -31.2, 11.5, -43, 9.1, -43, -6.5, -37.5, -6.5, -19, -15.7, -19, -18.5, 19, -18.5 )
 
-[node name="LaserGun" parent="Body/Movement" instance=ExtResource( 64 )]
-rotation = 36.9309
-rate_of_fire = 3.0
-
 [node name="PlayerScanner" type="Area2D" parent="."]
 editor/display_folded = true
 visible = false
@@ -121,7 +121,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScanner"]
 shape = SubResource( 3 )
-[connection signal="area_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="animation_finished" from="Body/Movement/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="area_entered" from="PlayerScanner" to="." method="_on_PlayerScanner_area_entered"]
 [connection signal="body_entered" from="PlayerScanner" to="." method="_on_Player_entered"]

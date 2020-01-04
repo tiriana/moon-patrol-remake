@@ -98,9 +98,9 @@ const ROCK = 4;
 func _on_hit(area_body):
 	if (alive && [ROCK, ENEMY, ENEMY_BULLET].has(area_body.collision_layer)):
 		die();
-		area_body.queue_free();
-		if (area_body.has_method("destroy")):
-			area_body.destroy();
+		#area_body.queue_free();
+		#if (area_body.has_method("destroy")):
+		#	area_body.destroy();
 
 func _on_Hitbox_area_entered(area):
 	_on_hit(area);
