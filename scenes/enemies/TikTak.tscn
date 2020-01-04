@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://scenes/enemies/TikTak.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Destructable.tscn" type="PackedScene" id=2]
@@ -63,34 +63,7 @@
 [ext_resource path="res://assets/texture/UFO 3/UFO3_0057.png" type="Texture" id=61]
 [ext_resource path="res://assets/texture/UFO 3/UFO3_0058.png" type="Texture" id=62]
 [ext_resource path="res://assets/texture/UFO 3/UFO3_0059.png" type="Texture" id=63]
-[ext_resource path="res://scenes/enemies/weapons/LaserGun.gd" type="Script" id=64]
-[ext_resource path="res://scenes/enemies/weapons/Bullet.gd" type="Script" id=65]
-[ext_resource path="res://icon.png" type="Texture" id=66]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00008.png" type="Texture" id=67]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00009.png" type="Texture" id=68]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00010.png" type="Texture" id=69]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00011.png" type="Texture" id=70]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00012.png" type="Texture" id=71]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00013.png" type="Texture" id=72]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00014.png" type="Texture" id=73]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00015.png" type="Texture" id=74]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00016.png" type="Texture" id=75]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00017.png" type="Texture" id=76]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00018.png" type="Texture" id=77]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00019.png" type="Texture" id=78]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00020.png" type="Texture" id=79]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00021.png" type="Texture" id=80]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00022.png" type="Texture" id=81]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00023.png" type="Texture" id=82]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00024.png" type="Texture" id=83]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00025.png" type="Texture" id=84]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00026.png" type="Texture" id=85]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00027.png" type="Texture" id=86]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00028.png" type="Texture" id=87]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00029.png" type="Texture" id=88]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00030.png" type="Texture" id=89]
-[ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00031.png" type="Texture" id=90]
-[ext_resource path="res://assets/texture/weapons/bazooka.png" type="Texture" id=91]
+[ext_resource path="res://scenes/enemies/weapons/boomer/BombGun.tscn" type="PackedScene" id=64]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -105,17 +78,6 @@ animations = [ {
 "loop": false,
 "name": "boom",
 "speed": 25.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 1.69008, 7.98421 )
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
 } ]
 
 [sub_resource type="RayShape2D" id=3]
@@ -138,7 +100,7 @@ script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 44
+frame = 11
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]
@@ -148,44 +110,7 @@ collision_mask = 34
 [node name="HitShape" type="CollisionPolygon2D" parent="Body/Movement/Hitbox"]
 polygon = PoolVector2Array( 13, -32, 14.3, -27.5, 23, -32.4, 23, -29.4, 31, -26.4, 31, -24.6, 33.3, -21.1, 32.2, -19, 31.4, -19, 30.8, -17, 36.1, -17, 49, 2.4, 49, 7.6, 53, 16.5, 53, 19, 51, 19, 42, 31, -37, 31, -37, 28.9, -47, 19.9, -47, 10.6, -40.4, -7, -39, -7, -30, -19, -25.6, -19, -28, -25, -25, -25, -22, -29, -18.2, -29, -9, -31.7, -7, -33.2, -7, -35, 13, -35 )
 
-[node name="BombGun" type="Node2D" parent="Body/Movement"]
-rotation = 36.9309
-script = ExtResource( 64 )
-rate_of_fire = 3.0
-
-[node name="Trigger" type="Timer" parent="Body/Movement/BombGun"]
-wait_time = 0.5
-
-[node name="Rotator" type="Node2D" parent="Body/Movement/BombGun"]
-rotation = 88.9531
-
-[node name="Bullet" type="KinematicBody2D" parent="Body/Movement/BombGun/Rotator"]
-collision_layer = 16
-collision_mask = 0
-script = ExtResource( 65 )
-
-[node name="Sprite" type="Sprite" parent="Body/Movement/BombGun/Rotator/Bullet"]
-visible = false
-rotation = 1.5708
-scale = Vector2( 0.07, 0.225 )
-texture = ExtResource( 66 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Movement/BombGun/Rotator/Bullet"]
-visible = false
-rotation = 1.5708
-shape = SubResource( 4 )
-disabled = true
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement/BombGun/Rotator/Bullet"]
-position = Vector2( 236.6, -0.383728 )
-scale = Vector2( 0.327075, 0.197333 )
-frames = SubResource( 5 )
-frame = 10
-playing = true
-
-[node name="Sprite" type="Sprite" parent="Body/Movement/BombGun/Rotator"]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 91 )
+[node name="BombGun" parent="Body/Movement" instance=ExtResource( 64 )]
 
 [node name="PlayerScanner" type="Area2D" parent="."]
 editor/display_folded = true
@@ -194,8 +119,8 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScanner"]
 shape = SubResource( 3 )
+[connection signal="animation_finished" from="Body/Movement/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_body_entered"]
-[connection signal="timeout" from="Body/Movement/BombGun/Trigger" to="Body/Movement/BombGun" method="_on_Trigger_timeout"]
 [connection signal="area_entered" from="PlayerScanner" to="." method="_on_PlayerScanner_area_entered"]
 [connection signal="body_entered" from="PlayerScanner" to="." method="_on_Player_entered"]

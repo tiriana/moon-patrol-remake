@@ -67,6 +67,12 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="VisibleCar/AnimatedSprite"]
 texture = ExtResource( 5 )
 
+[node name="GroundScanner" type="RayCast2D" parent="VisibleCar"]
+position = Vector2( 87.5717, -502.654 )
+enabled = true
+cast_to = Vector2( 0, 10000 )
+collision_mask = 2
+
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -85,16 +91,18 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Destroyer"]
 shape = SubResource( 3 )
 
-[node name="GroundScanner" type="RayCast2D" parent="."]
-position = Vector2( 87.5717, -502.654 )
-enabled = true
-cast_to = Vector2( 0, 10000 )
-collision_mask = 2
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 rotation = 1.5708
 shape = SubResource( 4 )
+
+[node name="Magnets" type="Node2D" parent="."]
+
+[node name="Fireball" type="Node2D" parent="Magnets"]
+position = Vector2( 1666.47, 78.4894 )
+
+[node name="Ufos" type="Node2D" parent="Magnets"]
+position = Vector2( 382.753, -505.907 )
 [connection signal="area_entered" from="VisibleCar/AnimatedSprite/Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="VisibleCar/AnimatedSprite/Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]

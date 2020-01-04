@@ -1,6 +1,7 @@
 extends KinematicBody2D
+tool
 
-var initial_speed 
+var initial_speed;
 export var speed = 300;
 onready var player = get_node("/root/World/Player");
 
@@ -25,4 +26,9 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_Fireball_ignited():
+	get_node("AnimatedSprite").animation = "default";
 	pass # Replace with function body.

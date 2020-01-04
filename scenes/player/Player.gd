@@ -17,6 +17,7 @@ onready var is_jumping = false;
 onready var reached_min_speed = false
 onready var respawn_x = 0;
 
+
 func _ready():
 	get_node("VisibleCar/GunFront").gun_holder = self;
 	get_node("VisibleCar/GunFront").world = get_parent();
@@ -36,12 +37,14 @@ func car_offset(x):
 	return clamp(m * x + b, 0, Y1);
 
 func _stick_to_the_ground():
-	var ground_y = get_node("GroundScanner").get_collision_point().y-75/2;
+	var ground_y = get_node("VisibleCar/GroundScanner").get_collision_point().y-75/2;
 	
 	if (not is_jumping || position.y >= ground_y):
 		position.y = ground_y;
 		is_jumping = false
-
+		
+	get_node("Magnets").position.y = ground_y - position.y;
+		
 func _process(delta):
 	if !alive:
 		return

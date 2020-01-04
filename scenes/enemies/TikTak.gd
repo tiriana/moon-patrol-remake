@@ -11,7 +11,10 @@ var speed_mod = randf() + 1;
 var pos_mod = Vector2(randf(), randf()) * 50;
 var active = false;
 
-onready var laserGun = get_node("Body/Movement/LaserGun");
+onready var bombGun = get_node("Body/Movement/BombGun");
+
+func _ready():
+	activate();
 
 func _physics_process(delta):
 	if (!player):
@@ -20,9 +23,8 @@ func _physics_process(delta):
 	if (!active):
 		return
 	
-	var desired_position = player.global_position - global_position;
-	desired_position += Vector2(200, -500) + pos_mod
-	
+	var desired_position = player.get_node("Magnets/Ufos").global_position - global_position;
+	desired_position +=  pos_mod
 	
 	var dir = desired_position.normalized()
 	
@@ -34,8 +36,8 @@ func _physics_process(delta):
 
 func activate():
 	active = true
-	laserGun.active = true;
-	laserGun.get_node("Trigger").start();
+	bombGun.active = true;
+	bombGun.get_node("Trigger").start();
 	remove_child(get_node("PlayerScanner"));
 	
 func _on_Player_entered(body):
@@ -44,13 +46,11 @@ func _on_Player_entered(body):
 func _on_PlayerScanner_area_entered(area):
 	activate();
 
-
 func _on_Hitbox_body_entered(body):
 	if (!active):
 		return;
 	get_node("Body/Movement/AnimatedSprite").animation = "boom";
 	body.queue_free();
-	laserGun.queue_free()
 	emit_signal("points", destruction_points, get_node("Body/Movement").get_global_transform());
 
 func _on_AnimatedSprite_animation_finished():

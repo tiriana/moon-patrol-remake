@@ -20,9 +20,8 @@ func _physics_process(delta):
 	if (!active):
 		return
 	
-	var desired_position = player.global_position - global_position;
-	desired_position += Vector2(200, -500) + pos_mod
-	
+	var desired_position = player.get_node("Magnets/Ufos").global_position - global_position;
+	desired_position += pos_mod
 	
 	var dir = desired_position.normalized()
 	
@@ -51,6 +50,7 @@ func _on_Hitbox_body_entered(body):
 	get_node("Body/Movement/AnimatedSprite").animation = "boom";
 	body.queue_free();
 	laserGun.queue_free()
+	#visible = false;
 	emit_signal("points", destruction_points, get_node("Body/Movement").get_global_transform());
 
 func _on_AnimatedSprite_animation_finished():
