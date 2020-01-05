@@ -48,8 +48,7 @@ func _stick_to_the_ground():
 	get_node("Magnets").position.y = ground_y - position.y;
 	
 func move_car(delta):
-	#velocity = move_and_slide(velocity * clamp(delta * 60.0, 0, 1), FLOOR);
-	velocity = move_and_slide(velocity , FLOOR);
+	move_and_collide(velocity * delta);
 	
 func _process(delta):
 	if !alive:
