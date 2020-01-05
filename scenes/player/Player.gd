@@ -46,7 +46,11 @@ func _stick_to_the_ground():
 		is_jumping = false
 		
 	get_node("Magnets").position.y = ground_y - position.y;
-		
+	
+func move_car(delta):
+	#velocity = move_and_slide(velocity * clamp(delta * 60.0, 0, 1), FLOOR);
+	velocity = move_and_slide(velocity , FLOOR);
+	
 func _process(delta):
 	if !alive:
 		return
@@ -60,7 +64,7 @@ func _process(delta):
 	
 	if velocity.x < MIN_SPEED:
 		velocity.x += ACCELERATION 
-		velocity = move_and_slide(velocity, FLOOR);
+		move_car(delta);
 		_stick_to_the_ground();
 		return;
 	
@@ -74,7 +78,7 @@ func _process(delta):
 	if (not is_jumping):
 		velocity.x = clamp(velocity.x, MIN_SPEED, MAX_SPEED)
 			
-	velocity = move_and_slide(velocity, FLOOR);
+	move_car(delta);
 	
 	_stick_to_the_ground();
 

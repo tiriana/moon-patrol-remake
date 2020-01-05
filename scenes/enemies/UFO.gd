@@ -11,7 +11,11 @@ var speed_mod = randf() + 1;
 var pos_mod = Vector2(randf(), randf()) * 50;
 var active = false;
 
-onready var laserGun = get_node("Body/Movement/LaserGun");
+var is_flying_away = false;
+
+const END_OF_CHECKPOINT_COLLISINO_LAYER = 128;
+
+onready var laserGun = get_node("Body/Movement/Gun");
 
 func _physics_process(delta):
 	if (!player):
@@ -29,20 +33,22 @@ func _physics_process(delta):
 	
 	velocity.x = clamp(velocity.x, -500, 1000);
 	
+	if is_flying_away:
+		velocity.y = -1200;
+	
 	move_and_collide(velocity * delta)
 
 func activate():
 	active = true
 	laserGun.active = true;
 	laserGun.get_node("Trigger").start();
-	remove_child(get_node("PlayerScanner"));
+	get_node("PlayerScanner").queue_free()
 	
 func _on_Player_entered(body):
 	activate();
 
 func _on_PlayerScanner_area_entered(area):
 	activate();
-
 
 func _on_Hitbox_body_entered(body):
 	if (!active):
@@ -57,3 +63,16 @@ func _on_AnimatedSprite_animation_finished():
 	if (get_node("Body/Movement/AnimatedSprite").animation == "boom"):
 		queue_free();
 		visible = false;
+
+func fly_away():
+	is_flying_away = true;
+	laserGun.active = false;
+	print(get_name(), " is flying away" );
+
+func decide_faith():
+	#here we're gonna decide if we fly away or kamikaze
+	fly_away();
+
+func _on_Hitbox_area_shape_entered(area_id, area, area_shape, self_shape):
+	if (area.collision_layer == END_OF_CHECKPOINT_COLLISINO_LAYER):
+		decide_faith();

@@ -94,27 +94,21 @@ position = Vector2( 0, 948 )
 
 [node name="A" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 2000, 19.112 )
-letter = "A"
 
 [node name="B" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
-letter = "B"
 
 [node name="C" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
-letter = "C"
 
 [node name="D" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
-letter = "C"
 
 [node name="E" parent="Sections/AE/Checkpoints" instance=ExtResource( 9 )]
-position = Vector2( 40000, 31.141 )
-letter = "E"
+position = Vector2( 40000, 28.6234 )
 isMilestone = true
 
 [node name="Obstacles" type="Node2D" parent="Sections/AE"]
-editor/display_folded = true
 
 [node name="Rock" parent="Sections/AE/Obstacles" instance=ExtResource( 10 )]
 position = Vector2( 640.878, 23.0766 )
@@ -141,7 +135,7 @@ position = Vector2( 6623.17, -57.0419 )
 position = Vector2( 17878, -44.0456 )
 
 [node name="HOLE" parent="Sections/AE/Obstacles" instance=ExtResource( 14 )]
-position = Vector2( 2380.12, -7.73749 )
+position = Vector2( 2380.12, -7.787 )
 scale = Vector2( 1.47853, 1.47853 )
 z_index = 1
 
@@ -169,24 +163,19 @@ position = Vector2( 0, 948 )
 
 [node name="F" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 0, 19.112 )
-letter = "F"
 
 [node name="G" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
-letter = "G"
 
 [node name="H" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
-letter = "H"
 
 [node name="I" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
-letter = "I"
 isMilestone = true
 
 [node name="J" parent="Sections/FJ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
-letter = "J"
 isMilestone = true
 
 [node name="KO" type="Node2D" parent="Sections"]
@@ -199,24 +188,19 @@ position = Vector2( 0, 948 )
 
 [node name="K" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 0, 19.112 )
-letter = "K"
 
 [node name="L" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
-letter = "L"
 
 [node name="M" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
-letter = "M"
 
 [node name="N" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
-letter = "N"
 isMilestone = true
 
 [node name="O" parent="Sections/KO/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
-letter = "O"
 isMilestone = true
 
 [node name="PT" type="Node2D" parent="Sections"]
@@ -229,24 +213,19 @@ position = Vector2( 0, 948 )
 
 [node name="P" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 0, 19.112 )
-letter = "P"
 
 [node name="Q" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
-letter = "Q"
 
 [node name="R" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
-letter = "R"
 
 [node name="S" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
-letter = "S"
 isMilestone = true
 
 [node name="T" parent="Sections/PT/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
-letter = "T"
 isMilestone = true
 
 [node name="UZ" type="Node2D" parent="Sections"]
@@ -259,15 +238,12 @@ position = Vector2( -50000, 948 )
 
 [node name="U" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 0, 19.112 )
-letter = "U"
 
 [node name="V" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 10000, 31.141 )
-letter = "V"
 
 [node name="W" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 20000, 31.141 )
-letter = "W"
 
 [node name="X" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 30000, 31.141 )
@@ -275,9 +251,7 @@ isMilestone = true
 
 [node name="Y" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 40000, 31.141 )
-letter = "Y"
 
 [node name="Z" parent="Sections/UZ/Checkpoints" instance=ExtResource( 9 )]
 position = Vector2( 50000, 31.141 )
-letter = "Z"
 isMilestone = true

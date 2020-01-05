@@ -11,10 +11,10 @@ var velocity;
 func _ready():
 	get_node("AnimatedSprite").animation = "ignition";
 
-func fire():
+func fire(no_rotation = false):
 	var my_pos = global_position
 	var magnet_pos = player.get_node("Magnets/Fireball").global_position
-	if (my_pos.x - magnet_pos.x != 0):
+	if (!no_rotation && my_pos.x - magnet_pos.x != 0):
 		rotation = atan((my_pos.y - magnet_pos.y) / (my_pos.x - magnet_pos.x));
 	
 	var desired_position = magnet_pos - my_pos;
@@ -25,7 +25,7 @@ func _process(delta):
 	if (!initial_speed):
 		return;
 		
-	fire();
+	fire(true);
 	
 	move_and_collide(velocity * delta);
 
@@ -41,5 +41,6 @@ func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
 	hole.rotation = 0;
 	
 	hole.connect("points", world, "_on_Level_points")
+	print(hole.position.y);
 	
 	queue_free();
