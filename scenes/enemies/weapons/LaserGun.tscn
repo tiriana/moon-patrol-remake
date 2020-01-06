@@ -24,6 +24,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Rotator/Bullet"]
+modulate = Color( 1, 0, 0, 1 )
 rotation = 1.5708
 scale = Vector2( 0.07, 0.225 )
 texture = ExtResource( 3 )

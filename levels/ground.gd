@@ -1,9 +1,4 @@
 extends Node2D
-tool
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +7,3 @@ func _ready():
 		ground.position.x = ground.get_node("Sprite").texture.get_size().x * i;
 		add_child(ground);
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

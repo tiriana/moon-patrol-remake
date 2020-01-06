@@ -2,15 +2,17 @@ extends KinematicBody2D
 
 signal respawned;
 
-const MIN_SPEED = 500
-const MAX_SPEED = 1000
+export var MIN_SPEED = 500
+export var MAX_SPEED = 1000
 
-const INITIAL_SPEED = MIN_SPEED
-const GRAVITY = 10
-const JUMP_POWER = -400
+export var INITIAL_SPEED = 500
+export var GRAVITY = 10
+export var JUMP_POWER = -400
 const FLOOR = Vector2(0, -1)
-const ACCELERATION = 5
-const BREAKING = -5;
+export var ACCELERATION = 5
+export var BREAKING = -5;
+
+export var is_interactive = true;
 
 onready var camera = get_node("Camera2D");
 onready var alive = true;
@@ -54,7 +56,7 @@ func _process(delta):
 	if !alive:
 		return
 		
-	if Input.is_action_pressed("ui_up") and not is_jumping:
+	if is_interactive and Input.is_action_pressed("ui_up") and not is_jumping:
 		velocity.y = JUMP_POWER;
 		is_jumping = true;
 	velocity.y += GRAVITY;
@@ -66,13 +68,14 @@ func _process(delta):
 		move_car(delta);
 		_stick_to_the_ground();
 		return;
-	
-	if Input.is_action_pressed("ui_right") and not is_jumping:
-		velocity.x += ACCELERATION
-	elif Input.is_action_pressed("ui_left") and not is_jumping:
-		velocity.x += BREAKING
-	elif not is_jumping:
-		velocity.x -= ACCELERATION;
+		
+	if is_interactive:
+		if Input.is_action_pressed("ui_right") and not is_jumping:
+			velocity.x += ACCELERATION
+		elif Input.is_action_pressed("ui_left") and not is_jumping:
+			velocity.x += BREAKING
+		elif not is_jumping:
+			velocity.x -= ACCELERATION;
 	
 	if (not is_jumping):
 		velocity.x = clamp(velocity.x, MIN_SPEED, MAX_SPEED)
