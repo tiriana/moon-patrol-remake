@@ -9,4 +9,4 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
-builds/html builds/win builds/win.948936a.zip
+builds/
