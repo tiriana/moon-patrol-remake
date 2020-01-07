@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/themes/menu_button.tres" type="Theme" id=1]
+[ext_resource path="res://assets/font/MainMenu.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="MoonButton" type="Button"]
+theme = ExtResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "BUTTON"
+flat = true
+align = 2

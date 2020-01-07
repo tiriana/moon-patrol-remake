@@ -68,7 +68,6 @@ margin_bottom = 661.0
 script = ExtResource( 6 )
 
 [node name="Buttons" type="VBoxContainer" parent="UI/Menu"]
-editor/display_folded = true
 margin_right = 338.0
 margin_bottom = 242.0
 alignment = 1

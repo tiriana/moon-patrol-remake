@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Screens/GameOverScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/themes/DarkScreen.tres" type="StyleBox" id=2]
+[ext_resource path="res://assets/font/MainMenu.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/Screens/AbstractMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/MoonButton.tscn" type="PackedScene" id=5]
+
+[node name="GameOverScreen" type="MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+script = ExtResource( 1 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_styles/panel = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 50.0
+margin_top = 350.0
+margin_right = 1870.0
+margin_bottom = 1030.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 1820.0
+margin_bottom = 229.0
+custom_fonts/font = ExtResource( 3 )
+text = "GAME OVER
+"
+align = 1
+
+[node name="AbstractMenu" parent="PanelContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_bottom = 233.0
+
+[node name="Buttons" type="VBoxContainer" parent="PanelContainer/VBoxContainer/AbstractMenu"]
+margin_left = 635.0
+margin_right = 1185.0
+margin_bottom = 242.0
+alignment = 1
+
+[node name="Continue" parent="PanelContainer/VBoxContainer/AbstractMenu/Buttons" instance=ExtResource( 5 )]
+margin_right = 550.0
+margin_bottom = 119.0
+text = "Continue"
+align = 1
+
+[node name="Start again" parent="PanelContainer/VBoxContainer/AbstractMenu/Buttons" instance=ExtResource( 5 )]
+margin_top = 123.0
+margin_right = 550.0
+margin_bottom = 242.0
+text = "Start again"
+align = 1
+
+[node name="Main menu" parent="PanelContainer/VBoxContainer/AbstractMenu/Buttons" instance=ExtResource( 5 )]
+margin_top = 246.0
+margin_right = 550.0
+margin_bottom = 365.0
+text = "Main menu"
+align = 1
+[connection signal="pressed" from="PanelContainer/VBoxContainer/AbstractMenu/Buttons/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/AbstractMenu/Buttons/Start again" to="." method="_on_Start_again_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/AbstractMenu/Buttons/Main menu" to="." method="_on_Main_menu_pressed"]

@@ -5,6 +5,9 @@ export (PackedDataContainer) var CAUTION;
 func caution(level = 1):
 	get_node("Panel/GridContainer/MiddlePanel/HBoxContainer/UpperPanel/CAUTION").start_warning(level);
 
+func set_highscore(highscore):
+	get_node("Panel/GridContainer/LeftPanel/VBoxContainer/HighScoreContainer/HighScore").set_text(String(highscore));
+
 func set_points(points):
 	get_node("Panel/GridContainer/LeftPanel/VBoxContainer/ScoreContainer/Score").set_text(String(points));
 

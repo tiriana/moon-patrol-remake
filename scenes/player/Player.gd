@@ -90,12 +90,11 @@ func respawn():
 	position.x = clamp(x, 0, x);
 	stop_blinking();
 	_ready();	
-	self.pause_mode = Node.PAUSE_MODE_INHERIT;
-	get_parent().get_tree().paused = false;
+	#self.pause_mode = Node.PAUSE_MODE_INHERIT;
+	#get_parent().get_tree().paused = false;
 	emit_signal("respawned");
 
 func die():
-	print("Emit signal DIE !!!!");
 	emit_signal("died");
 	alive = false;
 	velocity.x = 0;
@@ -103,8 +102,8 @@ func die():
 	start_blinking();
 	get_node("RespawnTimer").start()
 	
-	self.pause_mode = Node.PAUSE_MODE_PROCESS;
-	get_parent().get_tree().paused = true;
+	#self.pause_mode = Node.PAUSE_MODE_PROCESS;
+	#get_parent().get_tree().paused = true;
 	
 	get_node("Camera2D").shake(0.5, 75, 150);
 	
