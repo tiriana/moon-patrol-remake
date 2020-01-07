@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal respawned;
+signal died;
 
 export var MIN_SPEED = 500
 export var MAX_SPEED = 1000
@@ -94,6 +95,8 @@ func respawn():
 	emit_signal("respawned");
 
 func die():
+	print("Emit signal DIE !!!!");
+	emit_signal("died");
 	alive = false;
 	velocity.x = 0;
 	_stick_to_the_ground();

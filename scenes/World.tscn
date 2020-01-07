@@ -1,57 +1,60 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/World.gd" type="Script" id=1]
-[ext_resource path="res://scenes/ui/PointsIndicator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://levels/Level2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/ui/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/ui/HUD.gd" type="Script" id=6]
-[ext_resource path="res://assets/font/ardestine.tres" type="DynamicFont" id=7]
+[ext_resource path="res://scenes/Screens/MainMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui/PointsIndicator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/Level2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
 
 [node name="World" type="Node2D"]
+visible = false
 script = ExtResource( 1 )
-PointsIndicator = ExtResource( 2 )
+MainMenu = ExtResource( 2 )
+PointsIndicator = ExtResource( 3 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1407.51, 887.716 )
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( -3724.54, 851.927 )
 INITIAL_SPEED = 100
 
-[node name="Level" parent="." instance=ExtResource( 4 )]
+[node name="Level" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 
 [node name="HOLE" parent="Level/Sections/AE/Obstacles" index="8"]
 position = Vector2( 2382.17, -3.19592 )
+
+[node name="UFO2" parent="Level/Sections/AE/Enemies" index="0"]
+position = Vector2( 8000, -1831.05 )
+
+[node name="UFO" parent="Level/Sections/AE/Enemies" index="1"]
+position = Vector2( 6506.85, -2038.99 )
 
 [node name="TikTak" parent="Level/Sections/AE/Enemies" index="3"]
 position = Vector2( 1002.52, -1153.58 )
 
 [node name="UI" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
-[node name="HUD" parent="UI" instance=ExtResource( 5 )]
-margin_right = 1969.0
-margin_bottom = 200.0
-grow_horizontal = 2
-custom_constants/margin_right = 0
-custom_constants/margin_top = 0
-custom_constants/margin_left = 0
-custom_constants/margin_bottom = 0
-script = ExtResource( 6 )
-
-[node name="Panel" type="Panel" parent="UI/HUD"]
-margin_right = 1969.0
-margin_bottom = 200.0
-
-[node name="Points" type="Label" parent="UI/HUD/Panel"]
-margin_top = 41.0
-margin_right = 1959.0
-margin_bottom = 158.0
-custom_fonts/font = ExtResource( 7 )
-text = "0000
-"
+[node name="HUD" parent="UI" instance=ExtResource( 6 )]
 
 [node name="DynamicObjects" type="Node2D" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="FadeInLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeIn" type="Sprite" parent="FadeInLayer"]
+visible = false
+scale = Vector2( 1175.92, 54.023 )
+texture = ExtResource( 7 )
+
+[node name="GameTime" type="Timer" parent="."]
+autostart = true
+[connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="respawned" from="Player" to="." method="_on_Player_respawned"]
+[connection signal="caution" from="Level" to="." method="_on_Level_caution"]
 [connection signal="checkpoint" from="Level" to="." method="_on_Level_checkpoint"]
 [connection signal="points" from="Level" to="." method="_on_Level_points"]
+[connection signal="timeout" from="GameTime" to="." method="_on_GameTime_timeout"]
 
 [editable path="Level"]

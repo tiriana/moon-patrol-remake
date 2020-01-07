@@ -1,6 +1,8 @@
 extends KinematicBody2D
 signal points;
+signal caution;
 export var destruction_points = 100;
+export var caution_level = 1;
 
 onready var player = get_node("/root/World/Player");
 var speed = 100;
@@ -49,13 +51,17 @@ func _on_Player_entered(body):
 
 func _on_PlayerScanner_area_entered(area):
 	activate();
+	
+func _on_CautionScanner_area_entered(area):
+	print("UFO SIGNLS CAUTION");
+	emit_signal("caution", caution_level);
 
 func _on_Hitbox_body_entered(body):
 	if (!active):
 		return;
 	get_node("Body/Movement/AnimatedSprite").animation = "boom";
 	body.queue_free();
-	laserGun.queue_free()
+	laserGun.visible = false;
 	#visible = false;
 	emit_signal("points", destruction_points, get_node("Body/Movement").get_global_transform());
 
@@ -76,3 +82,6 @@ func decide_faith():
 func _on_Hitbox_area_shape_entered(area_id, area, area_shape, self_shape):
 	if (area.collision_layer == END_OF_CHECKPOINT_COLLISINO_LAYER):
 		decide_faith();
+
+
+

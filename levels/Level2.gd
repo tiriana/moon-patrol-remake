@@ -1,6 +1,7 @@
 extends Node2D
 signal checkpoint
 signal points
+signal caution;
 
 func _ready():
 	randomize()
@@ -14,9 +15,13 @@ func _ready():
 		if (section.get_node("Enemies")):
 			for enemy in section.get_node("Enemies").get_children():
 				enemy.connect("points", self, "_on_points")
+				enemy.connect("caution", self, "_on_caution")
 
 func _on_checkpoint(checkpoint):
 	emit_signal("checkpoint", checkpoint);
 
 func _on_points(points, transform):
 	emit_signal("points", points, transform);
+	
+func _on_caution(level):
+	emit_signal("caution", level);

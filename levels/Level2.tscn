@@ -21,7 +21,6 @@ script = ExtResource( 1 )
 z_index = 0
 
 [node name="Sections" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="AE" type="Node2D" parent="Sections"]
 position = Vector2( 0, 948 )
@@ -78,16 +77,16 @@ z_index = 1
 [node name="Enemies" type="Node2D" parent="Sections/AE"]
 
 [node name="UFO2" parent="Sections/AE/Enemies" instance=ExtResource( 10 )]
-position = Vector2( 2070.23, -2000 )
+position = Vector2( 6000, -1844 )
 
 [node name="UFO" parent="Sections/AE/Enemies" instance=ExtResource( 10 )]
-position = Vector2( 5000, -2000 )
+position = Vector2( 6000, -2000 )
 
 [node name="UFO3" parent="Sections/AE/Enemies" instance=ExtResource( 10 )]
 position = Vector2( 8276.77, -2000 )
 
 [node name="TikTak" parent="Sections/AE/Enemies" instance=ExtResource( 11 )]
-position = Vector2( 1002.52, -1152.78 )
+position = Vector2( 3000, -1152.78 )
 
 [node name="FJ" type="Node2D" parent="Sections"]
 editor/display_folded = true
