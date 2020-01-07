@@ -10,13 +10,6 @@ var time = 0;
 var lives = 3;
 
 func _ready():
-	var tween = get_node("Tween");
-	var fade_in = get_node("FadeInLayer/FadeIn")
-	fade_in.visible = true;
-	tween.interpolate_property(fade_in, "modulate", Color(0,0,0,1), Color(0,0,0,0), 3, Tween.TRANS_LINEAR, Tween.EASE_IN);
-	tween.start();
-	visible = true;
-	
 	HUD.set_time(0);
 	HUD.set_lives(lives);
 	HUD.set_checkpoint(" ");
@@ -36,24 +29,26 @@ func _on_Level_points(_points, transform):
 	node.visible = true;
 
 func _on_Player_respawned():
+	if lives <= 0:
+		get_tree().change_scene_to(MainMenu);
+		get_tree().paused = false;
+		
 	for child in get_node("DynamicObjects").get_children():
 		child.queue_free();
 
-
 func _on_Level_caution(level):
 	HUD.caution(level)
-
 
 func _on_GameTime_timeout():
 	time += 1;
 	HUD.set_time(time);
 	pass # Replace with function body.
 
-
 func _on_Player_died():
 	lives -= 1;
 	HUD.set_lives(lives);
+	return ;
 	if lives <= 0:
 		get_tree().change_scene_to(MainMenu);
-		get_tree().reload_current_scene();
+		get_tree().paused = false;
 	pass # Replace with function body.

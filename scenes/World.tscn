@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Screens/MainMenu.tscn" type="PackedScene" id=2]
@@ -6,10 +6,8 @@
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/Level2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/ui/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
 
 [node name="World" type="Node2D"]
-visible = false
 script = ExtResource( 1 )
 MainMenu = ExtResource( 2 )
 PointsIndicator = ExtResource( 3 )
@@ -40,13 +38,6 @@ position = Vector2( 1002.52, -1153.58 )
 [node name="DynamicObjects" type="Node2D" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="FadeInLayer" type="CanvasLayer" parent="."]
-
-[node name="FadeIn" type="Sprite" parent="FadeInLayer"]
-visible = false
-scale = Vector2( 1175.92, 54.023 )
-texture = ExtResource( 7 )
 
 [node name="GameTime" type="Timer" parent="."]
 autostart = true
