@@ -8,7 +8,7 @@ var world;
 # var b = "text"
 
 export (PackedScene) var BulletBigScene
-var can_shot = true;
+export var can_shot = true;
 export var rate_of_fire = 0.5 
 
 # Called when the node enters the scene tree for the first time.

@@ -3,15 +3,16 @@ extends KinematicBody2D
 signal respawned;
 signal died;
 
-export var MIN_SPEED = 500
-export var MAX_SPEED = 1000
+export var MIN_SPEED = 300.0
+export var MID_SPEED = 500.0
+export var MAX_SPEED = 1000.0
 
-export var INITIAL_SPEED = 500
-export var GRAVITY = 10
-export var JUMP_POWER = -400
+export var INITIAL_SPEED = 0.0
+export var GRAVITY = 10.0
+export var JUMP_POWER = -400.0
 const FLOOR = Vector2(0, -1)
-export var ACCELERATION = 5
-export var BREAKING = -5;
+export var ACCELERATION = 2.0
+export var BREAKING = -5.0;
 
 export var is_interactive = true;
 
@@ -28,13 +29,17 @@ func _ready():
 	get_node("VisibleCar/GunFront").world = get_parent();
 	get_node("VisibleCar/GunTop").gun_holder = self;
 	get_node("VisibleCar/GunTop").world = get_parent();
-
+	
+	if (!is_interactive):
+		get_node("VisibleCar/GunFront").can_shot = false;
+		get_node("VisibleCar/GunTop").can_shot = false;
+	
 func car_offset(x):
-	var X0 = MIN_SPEED;
+	var X0 = MIN_SPEED / 2;
 	var Y0 = 0;
 	
 	var X1 = MAX_SPEED;
-	var Y1 = 500;
+	var Y1 = 650;
 	
 	var m = 1.0 * (Y1 - Y0) / (X1 - X0);
 	var b = Y1 - m * X1; 
@@ -64,18 +69,14 @@ func _process(delta):
 	
 	get_node("VisibleCar").position.x = car_offset(velocity.x);
 	
-	if velocity.x < MIN_SPEED:
-		velocity.x += ACCELERATION 
-		move_car(delta);
-		_stick_to_the_ground();
-		return;
-		
-	if is_interactive:
-		if Input.is_action_pressed("ui_right") and not is_jumping:
+	if is_interactive and Input.is_action_pressed("ui_right") and not is_jumping:
+		velocity.x += ACCELERATION
+	elif is_interactive and Input.is_action_pressed("ui_left") and not is_jumping:
+		velocity.x += BREAKING
+	elif not is_jumping:
+		if velocity.x < MID_SPEED:
 			velocity.x += ACCELERATION
-		elif Input.is_action_pressed("ui_left") and not is_jumping:
-			velocity.x += BREAKING
-		elif not is_jumping:
+		else:
 			velocity.x -= ACCELERATION;
 	
 	if (not is_jumping):

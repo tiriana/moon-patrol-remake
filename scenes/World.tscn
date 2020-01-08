@@ -15,7 +15,6 @@ PointsIndicator = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( -3724.54, 851.927 )
-INITIAL_SPEED = 100
 
 [node name="Level" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
