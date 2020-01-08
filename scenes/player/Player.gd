@@ -10,6 +10,7 @@ export var MAX_SPEED = 1000.0
 export var INITIAL_SPEED = 0.0
 export var GRAVITY = 10.0
 export var JUMP_POWER = -400.0
+export var JUMP_POWER_SMALL = -250.0
 const FLOOR = Vector2(0, -1)
 export var ACCELERATION = 2.0
 export var BREAKING = -5.0;
@@ -63,7 +64,10 @@ func _process(delta):
 		return
 		
 	if is_interactive and Input.is_action_pressed("ui_up") and not is_jumping:
-		velocity.y = JUMP_POWER;
+		if (velocity.x < MIN_SPEED + 20):
+			velocity.y = JUMP_POWER_SMALL
+		else:
+			velocity.y = JUMP_POWER
 		is_jumping = true;
 	velocity.y += GRAVITY;
 	
