@@ -21,13 +21,10 @@ export var BREAKING = -5.0;
 
 export var is_interactive = true;
 
-onready var camera = get_node("Camera2D");
 onready var alive = true;
 onready var velocity = Vector2(INITIAL_SPEED, 0)
 onready var is_jumping = false;
-onready var reached_min_speed = false
 onready var respawn_x = 0;
-
 
 func _ready():
 	get_node("VisibleCar/GunFront").gun_holder = self;

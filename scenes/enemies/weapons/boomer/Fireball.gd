@@ -1,5 +1,4 @@
 extends KinematicBody2D
-tool
 
 var initial_speed;
 export var speed = 2000;
@@ -35,10 +34,12 @@ func _on_Fireball_ignited():
 func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
 	var world = get_tree().get_root().get_node("World");
 	var hole = Hole.instance();
+	var pos_Y = hole.position.y;
 	hole.z_index = 2;
 	world.get_node("DynamicObjects").add_child(hole);
 	hole.transform = get_global_transform();
 	hole.rotation = 0;
+	hole.position.y = 927.0;
 
 	hole.connect("points", world, "_on_Level_points")
 

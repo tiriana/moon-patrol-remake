@@ -1,6 +1,5 @@
 extends Node2D
 signal checkpoint
-tool
 
 export var is_milestone = false;
 export var is_last = false;

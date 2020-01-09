@@ -1,7 +1,5 @@
 extends Node2D
 
-export (PackedScene) var MainMenu;
-
 var points = 0;
 onready var HUD = get_node("UI/HUD");
 export (PackedScene) var PointsIndicator;

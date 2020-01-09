@@ -17,7 +17,6 @@ func fire():
 		return
 	var bullet = BulletBigScene.instance();
 	world.add_child(bullet);
-	var transform = get_global_transform()
 	bullet.transform = get_global_transform();
 	bullet.initial_speed = gun_holder.velocity;
 	can_shot = false;

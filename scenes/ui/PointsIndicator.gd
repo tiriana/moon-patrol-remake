@@ -9,6 +9,10 @@ func _ready():
 	rotation = 0;
 	tween.interpolate_property(self, "position", position, position + Vector2(0, -200), 2.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	
-	tween.connect("tween_completed", self, "queue_free");
-	
 	tween.start()
+
+
+
+
+func _on_Tween_tween_all_completed():
+	queue_free();

@@ -4,9 +4,6 @@ signal points;
 export var destruction_points = 100;
 export var jump_points = 80; 
 
-func _ready():
-	pass # Replace with function body.
-
 func destroy():
 	get_parent().queue_free();
 

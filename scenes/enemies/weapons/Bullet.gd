@@ -1,5 +1,4 @@
 extends KinematicBody2D
-tool
 
 var initial_speed;
 export var speed = 300;
@@ -12,15 +11,15 @@ func _ready():
 func _process(delta):
 	if (!initial_speed):
 		return;
-	
+
 	if rotation > PI / 2:
 		rotation -= 1.5 * delta;
 	if rotation < PI / 2:
 		rotation += 1.5 * delta;
-	
-	
+
+
 	var bulletSpeed = Vector2(speed, 0).rotated(self.rotation) + Vector2(player.velocity.x * 0.8, 0);
-	
+
 	move_and_slide(bulletSpeed);
 	pass
 
