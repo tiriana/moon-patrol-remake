@@ -26,6 +26,7 @@ pause_mode = 2
 [node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 position = Vector2( -1625.8, 880.897 )
 MID_SPEED = 800.0
 ACCELERATION = 1.5
