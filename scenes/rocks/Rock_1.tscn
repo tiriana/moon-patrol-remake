@@ -5,4 +5,7 @@
 [node name="Rock_normal_1" instance=ExtResource( 1 )]
 
 [node name="RockBase" parent="." index="0"]
-rotation = -4.07701
+position = Vector2( 0, 37.84 )
+
+[node name="overTheTop" parent="." index="2"]
+position = Vector2( 70.816, -282.311 )

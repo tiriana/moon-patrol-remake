@@ -4,11 +4,10 @@
 [ext_resource path="res://assets/texture/rocks/Asteroid Brown.png" type="Texture" id=2]
 
 [node name="Rock_small" instance=ExtResource( 1 )]
-editor/display_folded = true
 jump_points = 50
 
 [node name="RockBase" parent="." index="0"]
-position = Vector2( 2.58472, -31.0165 )
+position = Vector2( 0, -42.177 )
 
 [node name="Sprite" parent="RockBase" index="0"]
 texture = ExtResource( 2 )
