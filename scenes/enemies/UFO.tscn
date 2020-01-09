@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://scenes/enemies/UFO.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Destructable.tscn" type="PackedScene" id=2]
@@ -54,17 +54,16 @@
 [ext_resource path="res://assets/texture/UFO 1/UFO1__0047.png" type="Texture" id=52]
 [ext_resource path="res://assets/texture/UFO 1/UFO1__0048.png" type="Texture" id=53]
 [ext_resource path="res://assets/texture/UFO 1/UFO1__0049.png" type="Texture" id=54]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0050.png" type="Texture" id=55]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0051.png" type="Texture" id=56]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0052.png" type="Texture" id=57]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0053.png" type="Texture" id=58]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0054.png" type="Texture" id=59]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0055.png" type="Texture" id=60]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0056.png" type="Texture" id=61]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0057.png" type="Texture" id=62]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0058.png" type="Texture" id=63]
-[ext_resource path="res://assets/texture/UFO 1/UFO1__0059.png" type="Texture" id=64]
-[ext_resource path="res://scenes/enemies/CautionScanner.tscn" type="PackedScene" id=65]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0051.png" type="Texture" id=55]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0052.png" type="Texture" id=56]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0053.png" type="Texture" id=57]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0054.png" type="Texture" id=58]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0055.png" type="Texture" id=59]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0056.png" type="Texture" id=60]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0057.png" type="Texture" id=61]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0058.png" type="Texture" id=62]
+[ext_resource path="res://assets/texture/UFO 1/UFO1_0059.png" type="Texture" id=63]
+[ext_resource path="res://scenes/enemies/CautionScanner.tscn" type="PackedScene" id=64]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -75,7 +74,7 @@ animations = [ {
 "name": "default",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ) ],
+"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ) ],
 "loop": false,
 "name": "boom",
 "speed": 25.0
@@ -101,12 +100,13 @@ position = Vector2( 375.033, -19.5498 )
 script = ExtResource( 3 )
 
 [node name="Gun" parent="Body/Movement" instance=ExtResource( 4 )]
+visible = false
 rotation = -0.768211
 rate_of_fire = 3.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 32
+frame = 9
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]
@@ -122,7 +122,7 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScanner"]
 shape = SubResource( 3 )
 
-[node name="CautionScanner" parent="." instance=ExtResource( 65 )]
+[node name="CautionScanner" parent="." instance=ExtResource( 64 )]
 [connection signal="animation_finished" from="Body/Movement/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_shape_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_area_shape_entered"]
 [connection signal="body_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_body_entered"]

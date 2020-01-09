@@ -48,6 +48,7 @@ script = ExtResource( 2 )
 [node name="VisibleCar" type="Node2D" parent="."]
 
 [node name="GunTop" parent="VisibleCar" instance=ExtResource( 3 )]
+position = Vector2( -46.2583, -19.0095 )
 rotation = -1.5708
 
 [node name="GunFront" parent="VisibleCar" instance=ExtResource( 4 )]

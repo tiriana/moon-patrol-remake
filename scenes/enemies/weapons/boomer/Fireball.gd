@@ -16,17 +16,17 @@ func fire(no_rotation = false):
 	var magnet_pos = player.get_node("Magnets/Fireball").global_position
 	if (!no_rotation && my_pos.x - magnet_pos.x != 0):
 		rotation = atan((my_pos.y - magnet_pos.y) / (my_pos.x - magnet_pos.x));
-	
+
 	var desired_position = magnet_pos - my_pos;
-	
+
 	velocity = desired_position.normalized() * speed;
 
 func _process(delta):
 	if (!initial_speed):
 		return;
-		
+
 	fire(true);
-	
+
 	move_and_collide(velocity * delta);
 
 func _on_Fireball_ignited():
@@ -39,8 +39,7 @@ func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
 	world.get_node("DynamicObjects").add_child(hole);
 	hole.transform = get_global_transform();
 	hole.rotation = 0;
-	
+
 	hole.connect("points", world, "_on_Level_points")
-	print(hole.position.y);
-	
+
 	queue_free();

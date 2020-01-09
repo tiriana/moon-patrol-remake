@@ -22,22 +22,22 @@ onready var laserGun = get_node("Body/Movement/Gun");
 func _physics_process(delta):
 	if (!player):
 		return
-	
+
 	if (!active):
 		return
-	
+
 	var desired_position = player.get_node("Magnets/Ufos").global_position - global_position;
 	desired_position += pos_mod
-	
+
 	var dir = desired_position.normalized()
-	
+
 	velocity = (dir * desired_position.length() * 3.5 * speed_mod);
-	
+
 	velocity.x = clamp(velocity.x, -500, 1000);
-	
+
 	if is_flying_away:
 		velocity.y = -1200;
-	
+
 	move_and_collide(velocity * delta)
 
 func activate():
@@ -45,15 +45,14 @@ func activate():
 	laserGun.active = true;
 	laserGun.get_node("Trigger").start();
 	get_node("PlayerScanner").queue_free()
-	
+
 func _on_Player_entered(body):
 	activate();
 
 func _on_PlayerScanner_area_entered(area):
 	activate();
-	
+
 func _on_CautionScanner_area_entered(area):
-	print("UFO SIGNLS CAUTION");
 	emit_signal("caution", caution_level);
 
 func _on_Hitbox_body_entered(body):
@@ -73,7 +72,6 @@ func _on_AnimatedSprite_animation_finished():
 func fly_away():
 	is_flying_away = true;
 	laserGun.active = false;
-	print(get_name(), " is flying away" );
 
 func decide_faith():
 	#here we're gonna decide if we fly away or kamikaze
@@ -82,6 +80,3 @@ func decide_faith():
 func _on_Hitbox_area_shape_entered(area_id, area, area_shape, self_shape):
 	if (area.collision_layer == END_OF_CHECKPOINT_COLLISINO_LAYER):
 		decide_faith();
-
-
-
