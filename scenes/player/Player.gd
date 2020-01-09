@@ -9,6 +9,8 @@ export var MAX_SPEED = 1000.0
 
 var speed_in_air = 0;
 
+export var can_change_speed_in_air = true
+
 export var INITIAL_SPEED = 0.0
 export var GRAVITY = 10.0
 export var JUMP_POWER = -400.0
@@ -66,7 +68,7 @@ func _process(delta):
 	if !alive:
 		return
 		
-	if is_jumping:
+	if is_jumping and not Input.is_action_pressed("ui_right")  and not Input.is_action_pressed("ui_left") :
 		velocity.x += speed_in_air;
 		
 	get_node("VisibleCar").position.x = car_offset(velocity.x);	
@@ -77,19 +79,15 @@ func _process(delta):
 		else:
 			velocity.y = JUMP_POWER
 			
-		if Input.is_action_pressed("ui_right") :
-			speed_in_air = ACCELERATION
-		elif Input.is_action_pressed("ui_left"):
-			speed_in_air = BREAKING
-			
 		is_jumping = true;
 	velocity.y += GRAVITY;
 	
-	
-	if is_interactive and Input.is_action_pressed("ui_right") and not is_jumping:
+	if is_interactive and Input.is_action_pressed("ui_right") and (not is_jumping or can_change_speed_in_air):
 		velocity.x += ACCELERATION
-	elif is_interactive and Input.is_action_pressed("ui_left") and not is_jumping:
+		speed_in_air = ACCELERATION
+	elif is_interactive and Input.is_action_pressed("ui_left") and (not is_jumping or can_change_speed_in_air):
 		velocity.x += BREAKING
+		speed_in_air = BREAKING
 	elif not is_jumping:
 		if velocity.x < MID_SPEED:
 			velocity.x += ACCELERATION
