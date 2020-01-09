@@ -7,6 +7,8 @@ export var MIN_SPEED = 300.0
 export var MID_SPEED = 500.0
 export var MAX_SPEED = 1000.0
 
+var speed_in_air = 0;
+
 export var INITIAL_SPEED = 0.0
 export var GRAVITY = 10.0
 export var JUMP_POWER = -400.0
@@ -52,6 +54,7 @@ func _stick_to_the_ground():
 	
 	if (not is_jumping || position.y >= ground_y):
 		position.y = ground_y;
+		speed_in_air = 0;
 		is_jumping = false
 		
 	get_node("Magnets").position.y = ground_y - position.y;
@@ -63,15 +66,25 @@ func _process(delta):
 	if !alive:
 		return
 		
+	if is_jumping:
+		velocity.x += speed_in_air;
+		
+	get_node("VisibleCar").position.x = car_offset(velocity.x);	
+		
 	if is_interactive and Input.is_action_pressed("ui_up") and not is_jumping:
 		if (velocity.x < MIN_SPEED + 20):
 			velocity.y = JUMP_POWER_SMALL
 		else:
 			velocity.y = JUMP_POWER
+			
+		if Input.is_action_pressed("ui_right") :
+			speed_in_air = ACCELERATION
+		elif Input.is_action_pressed("ui_left"):
+			speed_in_air = BREAKING
+			
 		is_jumping = true;
 	velocity.y += GRAVITY;
 	
-	get_node("VisibleCar").position.x = car_offset(velocity.x);
 	
 	if is_interactive and Input.is_action_pressed("ui_right") and not is_jumping:
 		velocity.x += ACCELERATION
