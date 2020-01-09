@@ -1,36 +1,31 @@
 extends Node2D
 
 var gun_holder;
-var world;
 
 export (PackedScene) var BulletBigScene
 export var can_shot = true;
-export var rate_of_fire = 0.5 
+export var rate_of_fire = 0.01
+export var is_interactive = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("RateOfFire").wait_time = rate_of_fire;
-	pass # Replace with function body.
 
 func fire():
 	if (!can_shot):
 		return
 	var bullet = BulletBigScene.instance();
-	world.add_child(bullet);
+	get_tree().get_root().get_node("World").add_child(bullet);
 	bullet.transform = get_global_transform();
 	bullet.initial_speed = gun_holder.velocity;
 	can_shot = false;
 	get_node("RateOfFire").start();
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("fire"):
+	if is_interactive and Input.is_action_just_pressed("fire"):
 		fire()
-	pass
-
 
 func _on_RateOfFire_timeout():
 	can_shot = true;
 	get_node("RateOfFire").stop();
-	pass # Replace with function body.

@@ -28,9 +28,7 @@ onready var respawn_x = 0;
 
 func _ready():
 	get_node("VisibleCar/GunFront").gun_holder = self;
-	get_node("VisibleCar/GunFront").world = get_parent();
 	get_node("VisibleCar/GunTop").gun_holder = self;
-	get_node("VisibleCar/GunTop").world = get_parent();
 	
 	if (!is_interactive):
 		get_node("VisibleCar/GunFront").can_shot = false;
