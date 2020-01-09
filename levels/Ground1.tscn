@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/World/GroundPiece.tscn" type="PackedScene" id=2]
 
 [node name="ground" type="Node2D"]
-position = Vector2( 0, 926.843 )
+position = Vector2( 0, 1000 )
 z_index = -1
 script = ExtResource( 1 )
 __meta__ = {

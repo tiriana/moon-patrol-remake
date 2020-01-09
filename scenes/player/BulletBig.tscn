@@ -17,7 +17,7 @@ scale = Vector2( 0.167154, 0.167154 )
 texture = ExtResource( 2 )
 
 [node name="BulletLifetime" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.24
 one_shot = true
 autostart = true
 
