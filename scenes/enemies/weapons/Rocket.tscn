@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/enemies/weapons/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://scenes/enemies/weapons/boomer/Fireball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/texture/weapons/Missile04N.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 5.35191
+
+[node name="Bullet" type="KinematicBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="Fireball" parent="." instance=ExtResource( 2 )]
+position = Vector2( -9.46751, 0.251198 )
+rotation = -2.98023e-08
+scale = Vector2( 0.344486, 0.335782 )
+
+[node name="CollisionShape2D" parent="Fireball" index="0"]
+disabled = true
+
+[node name="AnimatedSprite" parent="Fireball" index="1"]
+frame = 10
+
+[node name="Area2D" parent="Fireball" index="2"]
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Fireball/Area2D" index="0"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+rotation = 1.5708
+scale = Vector2( 0.121634, 0.0428967 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8.79686, -0.206827 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="ThreatDetector" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 39
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ThreatDetector"]
+position = Vector2( 8.79686, -0.206827 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[editable path="Fireball"]

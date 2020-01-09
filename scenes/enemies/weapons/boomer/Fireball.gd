@@ -43,4 +43,7 @@ func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
 
 	hole.connect("points", world, "_on_Level_points")
 
-	queue_free();
+	if is_inside_tree():
+		queue_free()
+	else:
+		call_deferred("free")

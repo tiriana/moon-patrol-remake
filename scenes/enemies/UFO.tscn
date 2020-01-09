@@ -106,7 +106,7 @@ rate_of_fire = 3.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 30
+frame = 38
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]

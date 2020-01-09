@@ -38,10 +38,10 @@ func _ready():
 	
 func car_offset(x):
 	var X0 = MIN_SPEED ;
-	var Y0 = 0;
+	var Y0 = 417;
 	
 	var X1 = MAX_SPEED;
-	var Y1 = 650;
+	var Y1 = 695;
 	
 	var m = 1.0 * (Y1 - Y0) / (X1 - X0);
 	var b = Y1 - m * X1; 
