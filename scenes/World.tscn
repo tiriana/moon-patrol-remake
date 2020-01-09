@@ -15,21 +15,14 @@ PointsIndicator = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( -3724.54, 851.927 )
+MID_SPEED = 400.0
+MAX_SPEED = 500.0
+INITIAL_SPEED = 200.0
+ACCELERATION = 1.5
+BREAKING = -1.5
 
 [node name="Level" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
-
-[node name="HOLE" parent="Level/Sections/AE/Obstacles" index="8"]
-position = Vector2( 2382.17, -3.19592 )
-
-[node name="UFO2" parent="Level/Sections/AE/Enemies" index="0"]
-position = Vector2( 8000, -1831.05 )
-
-[node name="UFO" parent="Level/Sections/AE/Enemies" index="1"]
-position = Vector2( 6506.85, -2038.99 )
-
-[node name="TikTak" parent="Level/Sections/AE/Enemies" index="3"]
-position = Vector2( 1002.52, -1153.58 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 pause_mode = 2

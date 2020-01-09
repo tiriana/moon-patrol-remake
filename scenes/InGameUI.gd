@@ -5,7 +5,8 @@ signal player_continues
 signal player_starts_over
 
 var SCREENS = {
-	"game_over": preload("res://scenes/Screens/GameOverScreen.tscn")
+	"game_over": preload("res://scenes/Screens/GameOverScreen.tscn"),
+	"section_summary": preload("res://scenes/Screens/SectionSummary.tscn")
 }
 
 func _ready():
@@ -17,7 +18,7 @@ func hide_screen():
 
 func show_screen(screen_name):
 	if SCREENS[screen_name]:
-		_show_existing_screen(SCREENS[screen_name]);
+		return _show_existing_screen(SCREENS[screen_name]);
 	
 func _show_existing_screen(existing_screen_scene):
 	hide_screen();
@@ -27,3 +28,5 @@ func _show_existing_screen(existing_screen_scene):
 	screen.connect("player_starts_over", get_parent(), "_on_player_starts_over");
 	
 	get_node("CurrentScreen").add_child(screen)
+	
+	return screen

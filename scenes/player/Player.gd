@@ -36,7 +36,7 @@ func _ready():
 		get_node("VisibleCar/GunTop").can_shot = false;
 	
 func car_offset(x):
-	var X0 = MIN_SPEED / 2;
+	var X0 = MIN_SPEED ;
 	var Y0 = 0;
 	
 	var X1 = MAX_SPEED;

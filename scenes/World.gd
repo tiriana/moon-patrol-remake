@@ -19,6 +19,24 @@ func _ready():
 func _on_Level_checkpoint(checkpoint):
 	get_node("Player").respawn_x = checkpoint.global_position.x;
 	HUD.set_checkpoint(checkpoint.get_name());
+	
+	if (checkpoint.is_last or checkpoint.is_milestone):
+		show_summary_screen(checkpoint);
+		return;
+
+func show_summary_screen(checkpoint):
+	get_tree().paused = true;
+	var screen = get_node("UI").show_screen("section_summary");
+
+	screen.prepare(checkpoint.get_name(), time, checkpoint.avg_time, checkpoint.top_record, checkpoint.bonus(time), checkpoint.is_last)
+	screen.connect("animation_finished", self, "reset_time_and_resume", [], CONNECT_ONESHOT)
+	screen.start();
+	
+func reset_time_and_resume():
+	time = 0;
+	HUD.set_time(time);
+	get_node("UI").hide_screen();
+	get_tree().paused = false;
 
 func _on_Level_points(_points, transform):
 	points += _points;

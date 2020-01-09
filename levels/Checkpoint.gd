@@ -2,8 +2,15 @@ extends Node2D
 signal checkpoint
 tool
 
-export var isMilestone = false;
-export var isLast = false;
+export var is_milestone = false;
+export var is_last = false;
+export var avg_time = 80;
+export var top_record = 80;
+export var bonus_points = 1000;
+
+func bonus(time):
+	return bonus_points if time < top_record else 0;
+
 var is_active = false;
 func _ready():
 	get_node("Letter/Label").text = get_name();

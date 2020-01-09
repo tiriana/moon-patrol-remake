@@ -3,10 +3,6 @@ extends Node2D
 var gun_holder;
 var world;
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 export (PackedScene) var BulletBigScene
 export var can_shot = true;
 export var rate_of_fire = 0.5 
