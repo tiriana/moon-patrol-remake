@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/enemies/weapons/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/WYBUCH OD POCISKU/WYBUCH OD POCISKU_0000.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/texture/WYBUCH OD POCISKU/WYBUCH OD POCISKU_0009.png" type="Texture" id=11]
 [ext_resource path="res://scenes/enemies/weapons/boomer/Fireball.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/texture/weapons/Missile04N.png" type="Texture" id=13]
+[ext_resource path="res://assets/Sounds/07_OBSTACLE_BOOM.wav" type="AudioStream" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,7 +50,7 @@ scale = Vector2( 0.344486, 0.335782 )
 disabled = true
 
 [node name="AnimatedSprite" parent="Fireball" index="1"]
-frame = 17
+frame = 10
 
 [node name="Area2D" parent="Fireball" index="2"]
 collision_mask = 0
@@ -85,6 +86,10 @@ collision_mask = 2
 position = Vector2( 8.79686, -0.206827 )
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="Explode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -3.737
 [connection signal="animation_finished" from="Explosion" to="." method="_on_Explosion_animation_finished"]
 [connection signal="body_entered" from="ThreatDetector" to="." method="_on_ThreatDetector_body_entered"]
 [connection signal="body_entered" from="GroundDetector" to="." method="_on_GroundDetector_body_entered"]

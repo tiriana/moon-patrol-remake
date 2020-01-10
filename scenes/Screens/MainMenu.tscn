@@ -1,17 +1,22 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Screens/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/World/ParallaxBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/World/InfiniteGround.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Screens/Menu.gd" type="Script" id=5]
-[ext_resource path="res://assets/themes/menu_button.tres" type="Theme" id=6]
-[ext_resource path="res://assets/font/MainMenu.tres" type="DynamicFont" id=7]
-[ext_resource path="res://assets/texture/UI/GAME GUI squares/right.png" type="Texture" id=8]
-[ext_resource path="res://assets/texture/UI/GAME GUI squares/quitX.png" type="Texture" id=9]
-[ext_resource path="res://icon.png" type="Texture" id=10]
-[ext_resource path="res://assets/Sounds/14_MENU_MUSIC_DUST_OF_THE_SATURN.ogg" type="AudioStream" id=11]
-[ext_resource path="res://assets/texture/Baza.png" type="Texture" id=12]
+[ext_resource path="res://assets/font/ARDESTINE.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/Screens/Menu.gd" type="Script" id=6]
+[ext_resource path="res://assets/themes/menu_button.tres" type="Theme" id=7]
+[ext_resource path="res://assets/font/MainMenu.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/texture/UI/GAME GUI squares/right.png" type="Texture" id=9]
+[ext_resource path="res://assets/texture/UI/GAME GUI squares/quitX.png" type="Texture" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/Sounds/14_MENU_MUSIC_DUST_OF_THE_SATURN.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/texture/Baza.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+font_data = ExtResource( 5 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -33,9 +38,6 @@ is_interactive = false
 [node name="Camera2D" parent="Player" index="0"]
 smoothing_enabled = true
 smoothing_speed = 3.0
-
-[node name="VisibleCar" parent="Player" index="1"]
-editor/display_folded = false
 
 [node name="InfiniteGround" parent="." instance=ExtResource( 4 )]
 
@@ -63,7 +65,7 @@ margin_left = 791.0
 margin_top = 419.0
 margin_right = 1129.0
 margin_bottom = 661.0
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="Buttons" type="VBoxContainer" parent="UI/Menu"]
 margin_right = 338.0
@@ -75,11 +77,11 @@ modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
 margin_right = 338.0
 margin_bottom = 119.0
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
 custom_styles/focus = SubResource( 2 )
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 text = " Play"
-icon = ExtResource( 8 )
+icon = ExtResource( 9 )
 flat = true
 align = 2
 
@@ -90,11 +92,11 @@ margin_top = 123.0
 margin_right = 338.0
 margin_bottom = 242.0
 grow_vertical = 2
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
 custom_styles/focus = SubResource( 3 )
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 text = " Quit"
-icon = ExtResource( 9 )
+icon = ExtResource( 10 )
 flat = true
 align = 2
 
@@ -108,15 +110,15 @@ one_shot = true
 modulate = Color( 0, 0, 0, 0 )
 position = Vector2( 132.284, 198.067 )
 scale = Vector2( 17.8333, 11.2467 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 autoplay = true
 
 [node name="base" type="Sprite" parent="."]
 position = Vector2( 530.625, 771.707 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="pressed" from="UI/Menu/Buttons/PlayBtn" to="UI/Menu" method="_on_PlayBtn_pressed"]

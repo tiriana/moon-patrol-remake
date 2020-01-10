@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://scenes/enemies/UFO.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Destructable.tscn" type="PackedScene" id=2]
@@ -64,6 +64,7 @@
 [ext_resource path="res://assets/texture/UFO 1/UFO1_0058.png" type="Texture" id=62]
 [ext_resource path="res://assets/texture/UFO 1/UFO1_0059.png" type="Texture" id=63]
 [ext_resource path="res://scenes/enemies/CautionScanner.tscn" type="PackedScene" id=64]
+[ext_resource path="res://scenes/UFOSounds.tscn" type="PackedScene" id=65]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -106,7 +107,7 @@ rate_of_fire = 2.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 6
+frame = 27
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]
@@ -117,6 +118,7 @@ collision_mask = 160
 polygon = PoolVector2Array( 19, -15.7, 45, -3.8, 45, 7.5, 39.5, 7.5, 31.5, 11.5, 21, 11.5, 21, 12.3, 15.8, 17.5, -15.8, 17.5, -21.8, 11.5, -31.2, 11.5, -43, 9.1, -43, -6.5, -37.5, -6.5, -19, -15.7, -19, -18.5, 19, -18.5 )
 
 [node name="PlayerScanner" type="Area2D" parent="."]
+editor/display_folded = true
 visible = false
 collision_layer = 0
 
@@ -125,6 +127,8 @@ shape = SubResource( 3 )
 
 [node name="CautionScanner" parent="." instance=ExtResource( 64 )]
 visible = false
+
+[node name="Sounds" parent="." instance=ExtResource( 65 )]
 [connection signal="animation_finished" from="Body/Movement/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_shape_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_area_shape_entered"]
 [connection signal="body_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_body_entered"]

@@ -20,6 +20,7 @@ func fire():
 	bullet.initial_speed = gun_holder.velocity;
 	can_shot = false;
 	get_node("RateOfFire").start();
+	get_node("Shot").play();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://scenes/enemies/TikTak.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Destructable.tscn" type="PackedScene" id=2]
@@ -64,6 +64,7 @@
 [ext_resource path="res://assets/texture/UFO3/UFO3_0058.png" type="Texture" id=62]
 [ext_resource path="res://assets/texture/UFO3/UFO3_0059.png" type="Texture" id=63]
 [ext_resource path="res://scenes/enemies/CautionScanner.tscn" type="PackedScene" id=64]
+[ext_resource path="res://scenes/UFOSounds.tscn" type="PackedScene" id=65]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -108,7 +109,7 @@ rotation = -0.768211
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 16
+frame = 37
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]
@@ -134,6 +135,8 @@ collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndOfCheckpointScanner"]
 shape = SubResource( 4 )
+
+[node name="Sounds" parent="." instance=ExtResource( 65 )]
 [connection signal="animation_finished" from="Body/Movement/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="Body/Movement/Hitbox" to="." method="_on_Hitbox_body_entered"]

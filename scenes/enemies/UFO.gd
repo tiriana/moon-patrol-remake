@@ -45,6 +45,7 @@ func activate():
 	laserGun.active = true;
 	laserGun.get_node("Trigger").start();
 	get_node("PlayerScanner").queue_free()
+	get_node("Sounds/Incoming").play();
 
 func _on_Player_entered(body):
 	activate();
@@ -59,6 +60,7 @@ func _on_Hitbox_body_entered(body):
 	if (!active):
 		return;
 	get_node("Body/Movement/AnimatedSprite").animation = "boom";
+	get_node("Sounds/Boom").play();
 	body.queue_free();
 	laserGun.visible = false;
 	#visible = false;

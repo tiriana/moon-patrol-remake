@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/Level2.gd" type="Script" id=1]
 [ext_resource path="res://scenes/World/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -6,9 +6,14 @@
 [ext_resource path="res://levels/Checkpoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/rocks/MINE.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/rocks/Hole.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/enemies/UFO.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/enemies/TikTak.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/texture/Baza.png" type="Texture" id=9]
+[ext_resource path="res://scenes/rocks/HOLE_SMALL.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/rocks/Rock_1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/rocks/Rock_2_DOUBLE.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/rocks/Rock_base.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/enemies/UFO.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/enemies/TANK.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/enemies/TikTak.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/texture/Baza.png" type="Texture" id=14]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,7 +32,7 @@ editor/display_folded = true
 
 [node name="A" parent="Sections/AZ/Checkpoints" instance=ExtResource( 4 )]
 position = Vector2( 2000, 19.112 )
-avg_time = 14
+avg_time = 40
 top_record = 40
 
 [node name="B" parent="Sections/AZ/Checkpoints" instance=ExtResource( 4 )]
@@ -35,6 +40,7 @@ position = Vector2( 10000, 31.141 )
 
 [node name="C" parent="Sections/AZ/Checkpoints" instance=ExtResource( 4 )]
 position = Vector2( 20000, 31.141 )
+is_milestone = true
 
 [node name="D" parent="Sections/AZ/Checkpoints" instance=ExtResource( 4 )]
 position = Vector2( 30000, 31.141 )
@@ -111,47 +117,34 @@ position = Vector2( 200000, 31.141 )
 [node name="Obstacles" type="Node2D" parent="Sections/AZ"]
 
 [node name="MINE" parent="Sections/AZ/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 2675.7, -5.00043 )
 
 [node name="HOLE" parent="Sections/AZ/Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 4542.86, -38.0383 )
+position = Vector2( 8000.98, -31.416 )
+
+[node name="HOLE_SMALL" parent="Sections/AZ/Obstacles" instance=ExtResource( 7 )]
+position = Vector2( 3317.02, -3.93945 )
+
+[node name="Rock_normal_1" parent="Sections/AZ/Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 3874.34, -21.4271 )
+
+[node name="Rock_Double" parent="Sections/AZ/Obstacles" instance=ExtResource( 9 )]
+position = Vector2( 4509.19, -20.9974 )
+
+[node name="Rock_Base" parent="Sections/AZ/Obstacles" instance=ExtResource( 10 )]
+position = Vector2( 5277.83, -12.9236 )
 
 [node name="Enemies" type="Node2D" parent="Sections/AZ"]
+editor/display_folded = true
 
-[node name="UFO3" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 100, -1031.5 )
+[node name="UFO" parent="Sections/AZ/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 10230.1, -1137 )
 
-[node name="UFO7" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 100, -1031.5 )
+[node name="TANK" parent="Sections/AZ/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 6500, -60 )
 
-[node name="UFO5" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 100, -1031.5 )
-
-[node name="UFO9" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 100, -1031.5 )
-
-[node name="UFO4" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 100, -1031.5 )
-
-[node name="UFO8" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 100, -1031.5 )
-
-[node name="UFO6" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 100, -1031.5 )
-
-[node name="UFO10" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 100, -1031.5 )
-
-[node name="UFO" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 2730.57, -1031.5 )
-
-[node name="UFO2" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 9629.05, -1120.55 )
-
-[node name="TikTak" parent="Sections/AZ/Enemies" instance=ExtResource( 8 )]
-position = Vector2( 662.506, -1221.34 )
-
-[node name="TikTak2" parent="Sections/AZ/Enemies" instance=ExtResource( 8 )]
-position = Vector2( 12619.9, -1094.41 )
+[node name="TikTak" parent="Sections/AZ/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 10927.2, -1147.9 )
 
 [node name="StartPoint" type="Node2D" parent="."]
 position = Vector2( -3803.94, 769.309 )
@@ -159,4 +152,4 @@ position = Vector2( -3803.94, 769.309 )
 [node name="Base" type="Sprite" parent="StartPoint"]
 position = Vector2( -212.097, -0.301207 )
 z_index = 1
-texture = ExtResource( 9 )
+texture = ExtResource( 14 )

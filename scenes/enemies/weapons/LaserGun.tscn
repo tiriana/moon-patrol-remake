@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/enemies/weapons/LaserGun.gd" type="Script" id=1]
+[ext_resource path="res://assets/Sounds/05_CAR_SHOT.wav" type="AudioStream" id=2]
 
 [node name="LaserGun" type="Node2D"]
 modulate = Color( 0.941176, 0.407843, 0.0196078, 1 )
@@ -12,4 +13,8 @@ wait_time = 0.5
 
 [node name="Rotator" type="Node2D" parent="."]
 rotation = 88.9531
+
+[node name="Shot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+pitch_scale = 0.7
 [connection signal="timeout" from="Trigger" to="." method="_on_Trigger_timeout"]

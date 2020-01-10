@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/enemies/weapons/boomer/Fireball.gd" type="Script" id=1]
-[ext_resource path="res://scenes/rocks/Hole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/rocks/HOLE_SMALL.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00008.png" type="Texture" id=3]
 [ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00009.png" type="Texture" id=4]
 [ext_resource path="res://assets/texture/weapons/fueguito/efecto_fuego_00010.png" type="Texture" id=5]
@@ -69,7 +69,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.327075, 0.197333 )
 frames = SubResource( 2 )
-frame = 4
+frame = 15
 playing = true
 offset = Vector2( -150, 0 )
 

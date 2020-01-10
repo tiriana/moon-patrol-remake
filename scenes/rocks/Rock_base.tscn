@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/rocks/RockBase.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/_0004_Kamyk.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Destructable.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Sounds/07_OBSTACLE_BOOM.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 370.882
@@ -20,6 +21,7 @@ collision_mask = 33
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RockBase"]
+visible = false
 polygon = PoolVector2Array( 30, -104.3, 30, -100.7, 28.8, -99.5, 48, -76.2, 48, -72.5, 49, -44.5, 47.1, -44.5, 42.1, -36.5, 38.4, -36.5, 29.7, -42.6, 19, -37.3, 19, 109.5, -17, 109.5, -17, -36.3, -37, -34.3, -37, -36.9, -49, -54.9, -49, -65.2, -42, -71.4, -42, -89.5, -39.1, -89.5, -25.9, -90.4, -24.8, -91.5, -28.6, -105.5, -26, -105.5, -22.8, -109.5, -7.6, -109.5, -6, -109.1, -6, -104.8, -4.3, -100.8, -2.1, -104.5, 3.7, -104.5, 6.3, -102.6, 13.2, -109.5, 24.8, -109.5 )
 
 [node name="Destructable" parent="." instance=ExtResource( 3 )]
@@ -30,6 +32,9 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="overTheTop"]
 shape = SubResource( 1 )
+
+[node name="Boom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="area_entered" from="RockBase" to="." method="_on_RockBase_area_entered"]
 [connection signal="body_entered" from="RockBase" to="." method="_on_RockBase_body_entered"]
 [connection signal="area_entered" from="overTheTop" to="." method="_on_overTheTop_area_entered"]

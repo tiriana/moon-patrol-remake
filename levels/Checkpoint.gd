@@ -1,5 +1,6 @@
 extends Node2D
 signal checkpoint
+tool
 
 export var is_milestone = false;
 export var is_last = false;
@@ -20,6 +21,7 @@ func activate():
 	is_active = true;
 	emit_signal("checkpoint", self);
 	get_node("Letter/Label").add_color_override("font_color", Color(1,1,1))
+	get_node("Ping").play();
 
 func _on_PlayerScanner_body_entered(body):
 	if body.collision_layer == 1:

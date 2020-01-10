@@ -98,6 +98,7 @@ func _process(delta):
 			velocity.y = JUMP_POWER
 			
 		is_jumping = true;
+		get_node("Sounds/Jump").play();
 	velocity.y += GRAVITY;
 	
 	if is_interactive and Input.is_action_pressed("ui_right") and (not is_jumping or can_change_speed_in_air):
@@ -124,6 +125,7 @@ func respawn():
 	position.x = clamp(x, 0, x);
 	stop_blinking();
 	_ready();	
+	start_engine();
 	#self.pause_mode = Node.PAUSE_MODE_INHERIT;
 	#get_parent().get_tree().paused = false;
 	emit_signal("respawned");
@@ -140,6 +142,7 @@ func die():
 	#get_parent().get_tree().paused = true;
 	
 	get_node("Camera2D").shake(0.5, 75, 150);
+	get_node("Sounds/Boom").play();
 	
 const ENEMY_BULLET	= 16;
 const ENEMY  =8;

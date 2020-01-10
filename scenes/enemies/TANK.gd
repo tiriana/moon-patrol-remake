@@ -21,6 +21,7 @@ func _ready():
 	Gun.gun_holder = self
 	
 func _on_CautionScanner_area_entered(area):
+	Gun.active = true;
 	emit_signal("caution", caution_level);
 
 func _on_Hitbox_body_entered(body):
@@ -29,6 +30,7 @@ func _on_Hitbox_body_entered(body):
 	body.queue_free();
 	queue_free();
 	emit_signal("points", destruction_points, get_node("Body").get_global_transform());
+	get_node("Boom").play();
 
 func _on_RateOfFire_timeout():
 	Gun.fire();

@@ -33,11 +33,13 @@ func _on_Level_checkpoint(checkpoint):
 
 func show_summary_screen(checkpoint):
 	get_tree().paused = true;
-	var screen = get_node("UI").show_screen("section_summary");
+	var screen = get_node("UI").show_screen("section_summary" if checkpoint.is_last else "section_summary");
 
 	screen.prepare(checkpoint.get_name(), time, checkpoint.avg_time, checkpoint.top_record, checkpoint.bonus(time), checkpoint.is_last)
 	screen.connect("animation_finished", self, "reset_time_and_resume", [], CONNECT_ONESHOT)
 	screen.start();
+	get_node("Sounds/SectionEnd").play();
+	
 	
 func reset_time_and_resume():
 	time = 0;
@@ -80,10 +82,14 @@ func _on_Player_died():
 	
 	lives -= 1;
 	HUD.set_lives(lives);
-		
+	
+	if lives <= 0:
+		get_node('Sounds/GameOver').play();
+
 func show_game_over_screen():
 	get_tree().paused = true;
 	get_node("UI").show_screen("game_over");
+	
 	
 func _on_player_continues():
 	lives = 3;

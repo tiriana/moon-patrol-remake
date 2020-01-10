@@ -22,6 +22,7 @@ func fire():
 	bullet.rotation = bullet_rotation
 	bullet.initial_speed = get_tree().get_root().get_node("World").get_node("Player").velocity;
 	bullet.fire()
+	get_node("Shot").play();
 
 func _on_Trigger_timeout():
 	if (!active):

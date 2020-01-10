@@ -30,6 +30,7 @@ func explode():
 	if is_exploding:
 		return;
 	is_exploding = true;
+	get_node("Explode").play();
 	get_node("ThreatDetector/CollisionShape2D2").disabled = true;
 	get_node("GroundDetector/CollisionShape2D3").disabled = true;
 	initial_speed = false;

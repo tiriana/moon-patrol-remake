@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/Checkpoint.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/UI/Dialog Box.png" type="Texture" id=2]
 [ext_resource path="res://assets/font/ardestine.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/Sounds/09_CHECKPOINT.wav" type="AudioStream" id=4]
 
 [sub_resource type="RayShape2D" id=1]
 length = 1081.06
@@ -50,6 +51,9 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndOfCheckpoint"]
 position = Vector2( 51.2207, -884.592 )
 shape = SubResource( 1 )
+
+[node name="Ping" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="area_entered" from="PlayerScanner" to="." method="_on_PlayerScanner_area_entered"]
 [connection signal="body_entered" from="PlayerScanner" to="." method="_on_PlayerScanner_body_entered"]
 [connection signal="area_entered" from="EndOfCheckpoint" to="." method="_on_PlayerScanner_area_entered"]

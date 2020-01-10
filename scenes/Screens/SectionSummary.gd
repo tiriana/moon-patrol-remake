@@ -51,7 +51,7 @@ func start():
 func _show_and_start():
 	visible = true;
 	update_label();
-	get_node("Tween").interpolate_property(label, "percent_visible", 0, 1, 2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	get_node("Tween").interpolate_property(label, "percent_visible", 0, 1, 5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	get_node("Tween").start();
 
 func finish():
@@ -70,4 +70,5 @@ func _on_Timer_timeout():
 	avg_time -= 1;
 	bonus_points += bonus_points_step;
 	update_label()
+	get_node("Ping").play();
 	check();
