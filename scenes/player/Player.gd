@@ -35,7 +35,8 @@ func _ready():
 	get_node("VisibleCar/GunFront").gun_holder = self;
 	get_node("VisibleCar/GunTop").gun_holder = self;
 	
-	get_node("Camera2D").position.x -= 650;
+	get_node("Tween").interpolate_property(get_node("Camera2D"), "position", get_node("Camera2D").position - Vector2(750, 0), get_node("Camera2D").position, 6.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT);
+	get_node("Tween").start();
 	
 	if (!is_interactive):
 		get_node("VisibleCar/GunFront").can_shot = false;
@@ -85,7 +86,8 @@ func _process(delta):
 	
 	if is_jumping and not Input.is_action_pressed("ui_right")  and not Input.is_action_pressed("ui_left") :
 		velocity.x += speed_in_air;
-		
+	
+	var vixible_x = get_node("VisibleCar").position.x;
 	get_node("VisibleCar").position.x = car_offset(velocity.x);	
 		
 	if is_interactive and Input.is_action_pressed("ui_up") and not is_jumping:

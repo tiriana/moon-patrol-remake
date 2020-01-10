@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/texture/DZIURA/DZIURA_0006.png" type="Texture" id=8]
 [ext_resource path="res://assets/texture/DZIURA/DZIURA_0007.png" type="Texture" id=9]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": false,
@@ -31,10 +31,9 @@ visible = false
 position = Vector2( 2.86395, 64.4387 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="RockBase" index="1"]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 
 [node name="CollisionPolygon2D" parent="RockBase" index="2"]
-scale = Vector2( 1, 1 )
 build_mode = 1
 polygon = PoolVector2Array( 66.0543, -65.3285, -9.41781, -95.1066, -84.8899, -59.6809, -2.14951, 99.9353 )
 

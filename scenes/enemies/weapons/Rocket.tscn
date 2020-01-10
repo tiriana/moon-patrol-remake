@@ -42,14 +42,14 @@ frames = SubResource( 1 )
 [node name="Fireball" parent="." instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( -9.46751, 0.251198 )
-rotation = -2.98023e-008
+rotation = -2.98023e-08
 scale = Vector2( 0.344486, 0.335782 )
 
 [node name="CollisionShape2D" parent="Fireball" index="0"]
 disabled = true
 
 [node name="AnimatedSprite" parent="Fireball" index="1"]
-frame = 0
+frame = 7
 
 [node name="Area2D" parent="Fireball" index="2"]
 collision_mask = 0

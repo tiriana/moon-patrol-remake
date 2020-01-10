@@ -2,7 +2,7 @@ extends CenterContainer
 
 onready var buttons = get_node("Buttons").get_children()
 onready var selected_button_index = 0;
-var disabled = false;
+var disabled = true;
 
 func update_buttons():
 	for button in buttons:
@@ -45,7 +45,7 @@ func _on_PlayBtn_pressed():
 	tween.interpolate_property(camera, "smoothing_speed", 1, 0, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	#tween.interpolate_property(get_node("FadeOut"), "modulate", Color(0,0,0,0), Color(0,0,0,1), 3, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	
-	tween.interpolate_property(music, "volume_db", 0, -80, 4, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property(music, "volume_db", 0, -80, 7, Tween.TRANS_CUBIC, Tween.EASE_IN)
 	
 	
 	

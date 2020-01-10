@@ -30,7 +30,7 @@ script = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
-position = Vector2( 78.9833, 890.741 )
+position = Vector2( 818.004, 873.999 )
 MID_SPEED = 800.0
 ACCELERATION = 1.5
 is_interactive = false
@@ -45,7 +45,6 @@ editor/display_folded = false
 [node name="InfiniteGround" parent="." instance=ExtResource( 4 )]
 
 [node name="UI" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 editor/display_folded = true
@@ -121,8 +120,10 @@ stream = ExtResource( 12 )
 autoplay = true
 
 [node name="base" type="Sprite" parent="."]
-position = Vector2( -213.179, 757.358 )
+position = Vector2( 530.625, 771.707 )
 texture = ExtResource( 13 )
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="pressed" from="UI/Menu/Buttons/PlayBtn" to="UI/Menu" method="_on_PlayBtn_pressed"]
 [connection signal="pressed" from="UI/Menu/Buttons/ExitBtn" to="UI/Menu" method="_on_ExitBtn_pressed"]
 [connection signal="timeout" from="UI/Menu/GameStartDelay" to="UI/Menu" method="_on_GameStartDelay_timeout"]
