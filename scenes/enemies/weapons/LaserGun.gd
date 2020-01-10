@@ -4,6 +4,8 @@ export var rate_of_fire = 0.5;
 export var fire_chance = 0.9;
 var active = false;
 
+var Bullet = load("res://scenes/enemies/weapons/Rocket.tscn");
+
 var t = 0;
 var rotator = Vector2(PI / 3,0 );
 
@@ -20,7 +22,7 @@ func roll_the_dice():
 	return randf() < fire_chance; 
 
 func fire():
-	var bullet = get_node("Rotator/Bullet").duplicate();
+	var bullet = Bullet.instance();
 	bullet.visible = true;
 	get_tree().get_root().get_node("World").add_child(bullet);
 	var transform = get_global_transform()

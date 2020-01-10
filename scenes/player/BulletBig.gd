@@ -14,3 +14,8 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	queue_free()
+
+
+func _on_CollisionShape2D_tree_exited():
+	queue_free();
+	pass # Replace with function body.

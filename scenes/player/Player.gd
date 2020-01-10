@@ -19,6 +19,9 @@ const FLOOR = Vector2(0, -1)
 export var ACCELERATION = 2.0
 export var BREAKING = -5.0;
 
+export var margin_left = 417;
+export var margin_right = 695;
+
 export var is_interactive = true;
 
 onready var alive = true;
@@ -36,15 +39,15 @@ func _ready():
 	
 func car_offset(x):
 	var X0 = MIN_SPEED ;
-	var Y0 = 417;
+	var Y0 = margin_left;
 	
 	var X1 = MAX_SPEED;
-	var Y1 = 695;
+	var Y1 = margin_right;
 	
 	var m = 1.0 * (Y1 - Y0) / (X1 - X0);
 	var b = Y1 - m * X1; 
 		
-	return clamp(m * x + b, 0, Y1);
+	return clamp(m * x + b, margin_left, margin_right);
 
 func _stick_to_the_ground():
 	var ground_y = get_node("VisibleCar/GroundScanner").get_collision_point().y-75/2;

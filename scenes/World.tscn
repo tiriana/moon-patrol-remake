@@ -25,9 +25,6 @@ editor/display_folded = true
 [node name="Sections" parent="Level" index="2"]
 editor/display_folded = true
 
-[node name="HOLE" parent="Level/Sections/AZ/Obstacles" index="0"]
-position = Vector2( 1077.21, -22.1781 )
-
 [node name="UI" type="CanvasLayer" parent="."]
 pause_mode = 2
 script = ExtResource( 5 )

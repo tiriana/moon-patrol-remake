@@ -19,7 +19,7 @@ radius = 37.3
 height = 113.467
 
 [sub_resource type="RayShape2D" id=3]
-length = 188.932
+length = 2234.7
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 29.6256

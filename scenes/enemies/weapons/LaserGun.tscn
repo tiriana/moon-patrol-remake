@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://scenes/enemies/weapons/LaserGun.gd" type="Script" id=1]
-[ext_resource path="res://scenes/enemies/weapons/Rocket.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/texture/weapons/3.png" type="Texture" id=3]
 
 [node name="LaserGun" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,11 +10,4 @@ wait_time = 0.5
 
 [node name="Rotator" type="Node2D" parent="."]
 rotation = 88.9531
-
-[node name="Bullet" parent="Rotator" instance=ExtResource( 2 )]
-
-[node name="Sprite" type="Sprite" parent="Rotator"]
-visible = false
-scale = Vector2( 0.16353, 0.16353 )
-texture = ExtResource( 3 )
 [connection signal="timeout" from="Trigger" to="." method="_on_Trigger_timeout"]

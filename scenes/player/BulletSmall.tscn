@@ -6,6 +6,7 @@
 extents = Vector2( 10, 4.44286 )
 
 [node name="BulletSmall" instance=ExtResource( 1 )]
+speed = 200
 
 [node name="Sprite" parent="." index="0"]
 modulate = Color( 0.266667, 1, 0, 1 )

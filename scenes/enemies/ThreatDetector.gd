@@ -6,6 +6,7 @@ func _on_Threat():
 func _on_ThreatDetector_body_entered(body):
 	_on_Threat();
 	body.queue_free();
+	body.visible = false;
 
 func _on_ThreatDetector_area_entered(area):
 	_on_Threat();

@@ -51,4 +51,5 @@ one_shot = true
 autostart = true
 
 [node name="Node2D" type="Node2D" parent="."]
+[connection signal="tree_exited" from="CollisionShape2D" to="." method="_on_CollisionShape2D_tree_exited"]
 [connection signal="timeout" from="BulletLifetime" to="." method="_on_Timer_timeout"]

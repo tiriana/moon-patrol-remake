@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/Level2.gd" type="Script" id=1]
 [ext_resource path="res://scenes/World/ParallaxBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/Ground1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/Checkpoint.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/rocks/Hole.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/rocks/MINE.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/enemies/UFO.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/enemies/TikTak.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/enemies/TANK.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/rocks/MINE.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/enemies/UFO.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/enemies/TikTak.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/enemies/TANK.tscn" type="PackedScene" id=8]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -57,6 +56,8 @@ position = Vector2( 80000, 31.141 )
 
 [node name="J" parent="Sections/AZ/Checkpoints" instance=ExtResource( 4 )]
 position = Vector2( 90000, 31.141 )
+is_milestone = true
+is_last = true
 
 [node name="K" parent="Sections/AZ/Checkpoints" instance=ExtResource( 4 )]
 position = Vector2( 100000, 19.112 )
@@ -107,30 +108,25 @@ position = Vector2( 190000, 31.141 )
 position = Vector2( 200000, 31.141 )
 
 [node name="Obstacles" type="Node2D" parent="Sections/AZ"]
-editor/display_folded = true
 
-[node name="HOLE" parent="Sections/AZ/Obstacles" instance=ExtResource( 5 )]
-position = Vector2( 1081.97, -23.7648 )
-
-[node name="MINE" parent="Sections/AZ/Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 5135.16, -38.0382 )
-
-[node name="MINE2" parent="Sections/AZ/Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 5535.16, -38.0382 )
-
-[node name="MINE3" parent="Sections/AZ/Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 5935.16, -38.0382 )
-
-[node name="MINE4" parent="Sections/AZ/Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 6335.16, -38.0382 )
+[node name="MINE" parent="Sections/AZ/Obstacles" instance=ExtResource( 5 )]
 
 [node name="Enemies" type="Node2D" parent="Sections/AZ"]
 
-[node name="UFO" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 2201.52, -1028.95 )
+[node name="UFO" parent="Sections/AZ/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 2730.57, -1031.5 )
 
-[node name="TikTak" parent="Sections/AZ/Enemies" instance=ExtResource( 8 )]
-position = Vector2( 5721.38, -1005.36 )
+[node name="UFO2" parent="Sections/AZ/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 9629.05, -1120.55 )
 
-[node name="TANK" parent="Sections/AZ/Enemies" instance=ExtResource( 9 )]
-position = Vector2( 3000, -60 )
+[node name="TikTak" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
+position = Vector2( 662.506, -1221.34 )
+
+[node name="TikTak2" parent="Sections/AZ/Enemies" instance=ExtResource( 7 )]
+position = Vector2( 12619.9, -1094.41 )
+
+[node name="TANK" parent="Sections/AZ/Enemies" instance=ExtResource( 8 )]
+position = Vector2( 3529.05, -62.5532 )
+
+[node name="TANK2" parent="Sections/AZ/Enemies" instance=ExtResource( 8 )]
+position = Vector2( 10427.5, -77.5782 )

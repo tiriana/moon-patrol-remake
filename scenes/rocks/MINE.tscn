@@ -18,6 +18,7 @@ jump_points = 50
 
 [node name="RockBase" parent="." index="0"]
 position = Vector2( 0, 0 )
+collision_mask = 0
 
 [node name="Sprite" parent="RockBase" index="0"]
 visible = false
@@ -34,9 +35,6 @@ playing = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RockBase" index="3"]
 polygon = PoolVector2Array( 16.5, -9.4, 33.9, 7, 32.9, 9.5, 30.5, 9.5, -32.5, 11.5, -32.5, 9.3, -34.9, 7, -33.8, 4.5, -32.4, 4.5, -17.5, -9.4, -17.5, -11.5, 16.5, -11.5 )
-
-[node name="Destructable" parent="." index="1"]
-visible = false
 
 [node name="overTheTop" parent="." index="2"]
 position = Vector2( -0.116959, -213.772 )

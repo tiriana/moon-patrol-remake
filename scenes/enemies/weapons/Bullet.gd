@@ -25,9 +25,28 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	queue_free()
+
+func explode():
+	initial_speed = false;
+	get_node("Fireball").queue_free();
+	get_node("Sprite").queue_free();
+	
+	get_node("Explosion").visible = true;
+	get_node("Explosion").play("default")
+	get_node("Explosion").playing = true;
+	
+
+func _on_GroundDetector_body_entered(body):
+	print("HIT THE GROUND");
+	explode();
+
+
+func _on_Explosion_animation_finished():
+	print("Explosion_animation_finished");
+	queue_free();
 	pass # Replace with function body.
 
 
-func _on_Fireball_ignited():
-	get_node("AnimatedSprite").animation = "default";
+func _on_ThreatDetector_body_entered(body):
+	explode();
 	pass # Replace with function body.
