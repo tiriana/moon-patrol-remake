@@ -39,10 +39,15 @@ func _on_PlayBtn_pressed():
 	buttons[0].modulate = Color(0.5, 1, 1, 1);
 	
 	var camera = get_tree().get_root().get_node("MainMenu").get_node("Player").get_node("Camera2D");
+	var music = get_tree().get_root().get_node("MainMenu").get_node("Music");
 	camera.smoothing_enabled = true
 	var tween = get_node("Tween")
 	tween.interpolate_property(camera, "smoothing_speed", 1, 0, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	#tween.interpolate_property(get_node("FadeOut"), "modulate", Color(0,0,0,0), Color(0,0,0,1), 3, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	
+	tween.interpolate_property(music, "volume_db", 0, -80, 4, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	
+	
 	
 	get_node("GameStartDelay").start();
 	tween.start();

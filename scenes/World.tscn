@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/PointsIndicator.tscn" type="PackedScene" id=2]
@@ -38,7 +38,6 @@ margin_right = 1920.0
 [node name="Tween" type="Tween" parent="."]
 
 [node name="GameTime" type="Timer" parent="."]
-autostart = true
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -51,5 +50,6 @@ autoplay = true
 [connection signal="checkpoint" from="Level" to="." method="_on_Level_checkpoint"]
 [connection signal="points" from="Level" to="." method="_on_Level_points"]
 [connection signal="timeout" from="GameTime" to="." method="_on_GameTime_timeout"]
+[connection signal="finished" from="Sounds/StartMusic" to="." method="_on_StartMusic_finished"]
 
 [editable path="Level"]

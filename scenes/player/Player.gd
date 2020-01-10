@@ -35,13 +35,17 @@ func _ready():
 	get_node("VisibleCar/GunFront").gun_holder = self;
 	get_node("VisibleCar/GunTop").gun_holder = self;
 	
+	get_node("Camera2D").position.x -= 650;
+	
 	if (!is_interactive):
 		get_node("VisibleCar/GunFront").can_shot = false;
 		get_node("VisibleCar/GunTop").can_shot = false;
 	
-		get_node("Tween").interpolate_property(get_node("VisibleCar"), "position", get_node("VisibleCar").position, get_node("VisibleCar").position + Vector2(margin_left, 0), 2.0, Tween.TRANS_CUBIC, Tween.EASE_IN);
-		get_node("Tween").connect("tween_all_completed", self, "start_engine", [], CONNECT_ONESHOT)
-		get_node("Tween").start();
+func activate():
+	get_node("Tween").interpolate_property(get_node("VisibleCar"), "position", get_node("VisibleCar").position, get_node("VisibleCar").position + Vector2(margin_left, 0), 2.0, Tween.TRANS_CUBIC, Tween.EASE_IN);
+	get_node("Tween").interpolate_property(get_node("Camera2D"), "position", get_node("Camera2D").position, Vector2(0, 0), 2.0, Tween.TRANS_CUBIC, Tween.EASE_IN);
+	get_node("Tween").connect("tween_all_completed", self, "start_engine", [], CONNECT_ONESHOT)
+	get_node("Tween").start();
 	
 func start_engine():
 	is_engine_on = true;

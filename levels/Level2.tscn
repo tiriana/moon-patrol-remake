@@ -141,6 +141,6 @@ position = Vector2( 10427.5, -77.5782 )
 position = Vector2( -3803.94, 769.309 )
 
 [node name="Base" type="Sprite" parent="StartPoint"]
-position = Vector2( 256.543, -3.09088 )
+position = Vector2( -212.097, -0.301207 )
 z_index = 1
 texture = ExtResource( 10 )

@@ -14,6 +14,10 @@ func _ready():
 	HUD.set_highscore(15000)
 	HUD.set_points(0)
 
+func _on_StartMusic_finished():
+	get_node("GameTime").start();
+	get_node("Player").activate();
+
 func _on_Level_checkpoint(checkpoint):
 	get_node("Player").respawn_x = checkpoint.global_position.x;
 	HUD.set_checkpoint(checkpoint.get_name());
