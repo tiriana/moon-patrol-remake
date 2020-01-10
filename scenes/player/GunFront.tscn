@@ -10,7 +10,8 @@ __meta__ = {
 "_edit_group_": true
 }
 BulletBigScene = ExtResource( 2 )
+rate_of_fire = 0.45
 
 [node name="RateOfFire" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.45
 [connection signal="timeout" from="RateOfFire" to="." method="_on_RateOfFire_timeout"]

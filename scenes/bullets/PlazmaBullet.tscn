@@ -9,15 +9,15 @@ height = 75.4279
 [node name="PlazmaBullet" instance=ExtResource( 1 )]
 z_index = 1
 collision_layer = 16
-speed = 200
+speed = 300
 
 [node name="Sprite" parent="." index="0"]
 animation = "plazma"
-frame = 1
+frame = 4
 playing = true
 
 [node name="BulletLifetime" parent="." index="2"]
-wait_time = 2.48
+wait_time = 3.5
 
 [node name="ThreatDetector" parent="." index="4" instance=ExtResource( 2 )]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/Level2.gd" type="Script" id=1]
 [ext_resource path="res://scenes/World/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/enemies/UFO.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/enemies/TikTak.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemies/TANK.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/texture/Baza.png" type="Texture" id=10]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,6 +19,7 @@ script = ExtResource( 1 )
 [node name="ground" parent="." instance=ExtResource( 3 )]
 
 [node name="Sections" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="AZ" type="Node2D" parent="Sections"]
 position = Vector2( 0, 948 )
@@ -134,3 +136,11 @@ position = Vector2( 3529.05, -62.5532 )
 
 [node name="TANK2" parent="Sections/AZ/Enemies" instance=ExtResource( 9 )]
 position = Vector2( 10427.5, -77.5782 )
+
+[node name="StartPoint" type="Node2D" parent="."]
+position = Vector2( -3803.94, 769.309 )
+
+[node name="Base" type="Sprite" parent="StartPoint"]
+position = Vector2( 256.543, -3.09088 )
+z_index = 1
+texture = ExtResource( 10 )

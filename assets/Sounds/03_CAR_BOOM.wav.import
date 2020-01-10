@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/03_CAR_BOOM.wav-8595258aade6b6aabc7219511ec2a958.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/03_CAR_BOOM.wav"
+dest_files=[ "res://.import/03_CAR_BOOM.wav-8595258aade6b6aabc7219511ec2a958.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

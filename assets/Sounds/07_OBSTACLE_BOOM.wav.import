@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/07_OBSTACLE_BOOM.wav-700c30c22e579acd091acaddb8dc8bb4.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/07_OBSTACLE_BOOM.wav"
+dest_files=[ "res://.import/07_OBSTACLE_BOOM.wav-700c30c22e579acd091acaddb8dc8bb4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

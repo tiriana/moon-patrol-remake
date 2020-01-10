@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/11_SEQUENCE_END.wav-5504fd96bc4cb9c2ea6cc4d9e9d56e3c.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/11_SEQUENCE_END.wav"
+dest_files=[ "res://.import/11_SEQUENCE_END.wav-5504fd96bc4cb9c2ea6cc4d9e9d56e3c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

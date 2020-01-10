@@ -13,6 +13,8 @@ func _ready():
 	HUD.set_checkpoint(" ")
 	HUD.set_highscore(15000)
 	HUD.set_points(0)
+	
+	get_node("Player").position = get_node("Level/StartPoint").position;
 
 func _on_Level_checkpoint(checkpoint):
 	get_node("Player").respawn_x = checkpoint.global_position.x;

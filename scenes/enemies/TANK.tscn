@@ -51,10 +51,10 @@ __meta__ = {
 "_edit_group_": true
 }
 BulletBigScene = ExtResource( 6 )
-rate_of_fire = 2.0
+rate_of_fire = 3.5
 
 [node name="RateOfFire" type="Timer" parent="TankCannon"]
-wait_time = 0.51
+wait_time = 3.5
 autostart = true
 [connection signal="area_shape_entered" from="Body/Hitbox" to="." method="_on_Hitbox_area_shape_entered"]
 [connection signal="body_entered" from="Body/Hitbox" to="." method="_on_Hitbox_body_entered"]

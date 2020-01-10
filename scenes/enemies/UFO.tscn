@@ -102,11 +102,11 @@ script = ExtResource( 3 )
 [node name="Gun" parent="Body/Movement" instance=ExtResource( 4 )]
 visible = false
 rotation = -0.768211
-rate_of_fire = 3.0
+rate_of_fire = 2.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 37
+frame = 31
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]

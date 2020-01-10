@@ -6,7 +6,7 @@
 extents = Vector2( 10, 4.44286 )
 
 [node name="BulletSmall" instance=ExtResource( 1 )]
-speed = 200
+speed = 750
 
 [node name="Sprite" parent="." index="0"]
 modulate = Color( 0.266667, 1, 0, 1 )
@@ -18,4 +18,4 @@ frame = 5
 shape = SubResource( 1 )
 
 [node name="BulletLifetime" parent="." index="2"]
-wait_time = 0.4
+wait_time = 0.8

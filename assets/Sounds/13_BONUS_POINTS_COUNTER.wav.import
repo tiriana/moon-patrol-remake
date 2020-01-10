@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/13_BONUS_POINTS_COUNTER.wav-3ec37a1eb2dc175580a5573a44f5a397.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/13_BONUS_POINTS_COUNTER.wav"
+dest_files=[ "res://.import/13_BONUS_POINTS_COUNTER.wav-3ec37a1eb2dc175580a5573a44f5a397.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
