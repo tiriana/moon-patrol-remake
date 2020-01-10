@@ -18,6 +18,10 @@ func _on_Level_checkpoint(checkpoint):
 	get_node("Player").respawn_x = checkpoint.global_position.x;
 	HUD.set_checkpoint(checkpoint.get_name());
 	
+	for node in get_tree().get_nodes_in_group("to_clear"):
+		print(["remving", node.get_name()])
+		node.queue_free();
+	
 	if (checkpoint.is_last or checkpoint.is_milestone):
 		show_summary_screen(checkpoint);
 		return;
