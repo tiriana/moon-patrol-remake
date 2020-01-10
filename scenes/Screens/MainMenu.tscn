@@ -108,7 +108,7 @@ stream = ExtResource( 11 )
 autoplay = true
 
 [node name="base" type="Sprite" parent="."]
-position = Vector2( -1081.71, 760.449 )
+position = Vector2( -1072.44, 772.812 )
 texture = ExtResource( 12 )
 [connection signal="pressed" from="UI/Menu/Buttons/PlayBtn" to="UI/Menu" method="_on_PlayBtn_pressed"]
 [connection signal="pressed" from="UI/Menu/Buttons/ExitBtn" to="UI/Menu" method="_on_ExitBtn_pressed"]
