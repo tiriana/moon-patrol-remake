@@ -17,6 +17,7 @@ func _ready():
 func _on_StartMusic_finished():
 	get_node("GameTime").start();
 	get_node("Player").activate();
+	get_node("Sounds/MainMusic").play();
 
 func _on_Level_checkpoint(checkpoint):
 	get_node("Player").respawn_x = checkpoint.global_position.x;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/PointsIndicator.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/InGameUI.gd" type="Script" id=5]
 [ext_resource path="res://scenes/ui/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/Sounds/01_WORLD_START.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/Sounds/02_GAMEPLAY_MUSIC.ogg" type="AudioStream" id=8]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,6 +15,7 @@ PointsIndicator = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -3731.22, 891.254 )
+INITIAL_SPEED = 300.0
 ACCELERATION = 1.5
 BREAKING = -1.5
 
@@ -44,6 +46,9 @@ margin_right = 1920.0
 [node name="StartMusic" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 7 )
 autoplay = true
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 8 )
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="respawned" from="Player" to="." method="_on_Player_respawned"]
 [connection signal="caution" from="Level" to="." method="_on_Level_caution"]

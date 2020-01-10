@@ -53,7 +53,6 @@ editor_draw_drag_margin = true
 script = ExtResource( 2 )
 
 [node name="VisibleCar" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="GunTop" parent="VisibleCar" instance=ExtResource( 3 )]
 position = Vector2( -46.2583, -19.0095 )
