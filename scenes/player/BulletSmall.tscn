@@ -6,10 +6,13 @@
 extents = Vector2( 10, 4.44286 )
 
 [node name="BulletSmall" instance=ExtResource( 1 )]
+modulate = Color( 1, 0.639216, 0.0196078, 1 )
+self_modulate = Color( 1, 0.709804, 0.0196078, 1 )
 speed = 750
 
 [node name="Sprite" parent="." index="0"]
-modulate = Color( 0.266667, 1, 0, 1 )
+modulate = Color( 1, 0.643137, 0.0235294, 1 )
+self_modulate = Color( 0.980392, 0.584314, 0.027451, 1 )
 rotation = 1.5708
 scale = Vector2( 0.25, 0.5 )
 frame = 5
@@ -19,3 +22,7 @@ shape = SubResource( 1 )
 
 [node name="BulletLifetime" parent="." index="2"]
 wait_time = 0.8
+
+[node name="Node2D" parent="." index="3"]
+modulate = Color( 0.933333, 0.670588, 0.0470588, 1 )
+self_modulate = Color( 0.886275, 0.576471, 0.0431373, 1 )

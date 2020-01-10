@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/texture/car.png" type="Texture" id=9]
 
 [node name="HUD" type="MarginContainer"]
+editor/display_folded = true
 anchor_right = 1.0
 margin_bottom = 113.0
 script = ExtResource( 1 )
@@ -84,6 +85,7 @@ text = "0000"
 align = 2
 
 [node name="MiddlePanel" type="PanelContainer" parent="Panel/GridContainer"]
+modulate = Color( 1, 1, 1, 0.635294 )
 margin_left = 292.0
 margin_right = 1606.0
 margin_bottom = 253.0
@@ -125,6 +127,7 @@ valign = 1
 [node name="CAUTION" parent="Panel/GridContainer/MiddlePanel/HBoxContainer/UpperPanel" instance=ExtResource( 5 )]
 margin_left = 479.0
 margin_right = 1254.0
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 0.364706 )
 
 [node name="ProgressContainer" type="HBoxContainer" parent="Panel/GridContainer/MiddlePanel/HBoxContainer"]
 margin_top = 178.0
@@ -134,6 +137,7 @@ alignment = 1
 script = ExtResource( 6 )
 
 [node name="ReachedPoints" type="Label" parent="Panel/GridContainer/MiddlePanel/HBoxContainer/ProgressContainer"]
+modulate = Color( 0.968627, 0.596078, 0.0627451, 1 )
 margin_left = 106.0
 margin_right = 189.0
 margin_bottom = 35.0
@@ -145,6 +149,7 @@ align = 3
 valign = 1
 
 [node name="OtherPoints" type="Label" parent="Panel/GridContainer/MiddlePanel/HBoxContainer/ProgressContainer"]
+modulate = Color( 0.94902, 0.65098, 0.0784314, 1 )
 margin_left = 193.0
 margin_right = 1148.0
 margin_bottom = 35.0

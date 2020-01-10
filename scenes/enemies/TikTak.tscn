@@ -108,7 +108,7 @@ rotation = -0.768211
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 49
+frame = 16
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]

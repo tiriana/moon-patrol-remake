@@ -6,6 +6,8 @@
 extents = Vector2( 1700, 2096.33 )
 
 [node name="CautionScanner" type="Area2D"]
+modulate = Color( 0.984314, 0.00784314, 0.00784314, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -1.054 )
 collision_layer = 0
 script = ExtResource( 1 )

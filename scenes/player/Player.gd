@@ -11,7 +11,7 @@ var speed_in_air = 0;
 
 export var can_change_speed_in_air = true
 
-onready var INITIAL_SPEED = MIN_SPEED
+export var INITIAL_SPEED = 0.0
 export var GRAVITY = 10.0
 export var JUMP_POWER = -400.0
 export var JUMP_POWER_SMALL = -250.0
@@ -29,8 +29,6 @@ onready var velocity = Vector2(INITIAL_SPEED, 0)
 onready var is_jumping = false;
 onready var respawn_x = 0;
 
-var is_engine_on = false;
-
 func _ready():
 	get_node("VisibleCar/GunFront").gun_holder = self;
 	get_node("VisibleCar/GunTop").gun_holder = self;
@@ -38,13 +36,6 @@ func _ready():
 	if (!is_interactive):
 		get_node("VisibleCar/GunFront").can_shot = false;
 		get_node("VisibleCar/GunTop").can_shot = false;
-		
-	get_node("Tween").interpolate_property(get_node("VisibleCar"), "position", get_node("VisibleCar").position, get_node("VisibleCar").position + Vector2(margin_left, 0), 2.0, Tween.TRANS_CUBIC, Tween.EASE_IN);
-	get_node("Tween").connect("tween_all_completed", self, "start_engine", [], CONNECT_ONESHOT)
-	get_node("Tween").start();
-	
-func start_engine():
-	is_engine_on = true;
 	
 func car_offset(x):
 	var X0 = MIN_SPEED ;
@@ -73,10 +64,6 @@ func move_car(delta):
 	
 func _process(delta):
 	if !alive:
-		return
-		
-	if !is_engine_on:
-		_stick_to_the_ground();
 		return
 		
 	if is_jumping and not Input.is_action_pressed("ui_right")  and not Input.is_action_pressed("ui_left") :

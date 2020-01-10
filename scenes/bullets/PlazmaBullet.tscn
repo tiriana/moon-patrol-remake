@@ -6,14 +6,16 @@
 [sub_resource type="CapsuleShape2D" id=1]
 height = 75.4279
 
-[node name="PlazmaBullet" instance=ExtResource( 1 )]
+[node name="PlazmaBullet" index="0" instance=ExtResource( 1 )]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 z_index = 1
 collision_layer = 16
 speed = 300
 
 [node name="Sprite" parent="." index="0"]
 animation = "plazma"
-frame = 4
+frame = 6
 playing = true
 
 [node name="BulletLifetime" parent="." index="2"]
