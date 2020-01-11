@@ -98,7 +98,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Movement" type="Node2D" parent="Body"]
-position = Vector2( 375.033, -19.5498 )
+position = Vector2( 1320.31, -4.15272 )
 script = ExtResource( 3 )
 
 [node name="Gun" parent="Body/Movement" instance=ExtResource( 4 )]
@@ -108,7 +108,7 @@ rate_of_fire = 2.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 14
+frame = 19
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]

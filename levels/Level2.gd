@@ -32,6 +32,7 @@ var CHECKPOINTS = [
 ];
 
 var OBSTACLES = [
+
 [39400,HOLE],
 [49000,HOLE],
 [62800,HOLE],

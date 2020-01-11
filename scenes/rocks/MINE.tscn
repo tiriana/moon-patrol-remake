@@ -13,6 +13,7 @@ animations = [ {
 } ]
 
 [node name="MINE" instance=ExtResource( 1 )]
+position = Vector2( 0, -26 )
 destruction_points = 0
 jump_points = 50
 
@@ -25,7 +26,6 @@ visible = false
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="RockBase" index="1"]
-visible = false
 polygon = PoolVector2Array( 0, 0, 0, 0 )
 disabled = true
 

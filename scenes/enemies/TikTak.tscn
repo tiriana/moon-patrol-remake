@@ -101,7 +101,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Movement" type="Node2D" parent="Body"]
-position = Vector2( 375.033, -19.5498 )
+position = Vector2( 1009.59, -10.357 )
 script = ExtResource( 3 )
 
 [node name="Gun" parent="Body/Movement" instance=ExtResource( 4 )]
@@ -110,7 +110,7 @@ rotation = -0.768211
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 43
+frame = 2
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]

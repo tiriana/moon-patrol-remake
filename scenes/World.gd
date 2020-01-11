@@ -33,10 +33,10 @@ func _on_Level_checkpoint(checkpoint):
 		
 	get_node("Player").respawn_x = respawn_x
 	
-	HUD.set_checkpoint(checkpoint.get_name());
-	
 	for node in get_tree().get_nodes_in_group("to_clear"):
 		node.queue_free();
+	
+	HUD.set_checkpoint(checkpoint.get_name());
 		
 	if (checkpoint.is_last):
 		reached_end = true;
@@ -131,3 +131,4 @@ func _on_player_starts_over():
 	
 func _on_screen_closed():
 	get_tree().paused = false;
+

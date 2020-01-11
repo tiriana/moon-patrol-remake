@@ -14,6 +14,7 @@ script = ExtResource( 1 )
 [node name="ground" parent="." instance=ExtResource( 3 )]
 
 [node name="Sections" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="AZ" type="Node2D" parent="Sections"]
 position = Vector2( 0, 948 )
@@ -37,6 +38,8 @@ position = Vector2( 40320, 31.141 )
 [node name="E" parent="Sections/AZ/Checkpoints" instance=ExtResource( 4 )]
 position = Vector2( 49920, 28.6234 )
 is_milestone = true
+avg_time = 200
+top_record = 200
 
 [node name="F" parent="Sections/AZ/Checkpoints" instance=ExtResource( 4 )]
 position = Vector2( 61440, 19.112 )
@@ -54,8 +57,11 @@ position = Vector2( 90240, 31.141 )
 position = Vector2( 99840, 31.141 )
 is_milestone = true
 is_last = true
+avg_time = 200
+top_record = 200
 
 [node name="Obstacles" type="Node2D" parent="Sections/AZ"]
+position = Vector2( 1.891, 0 )
 
 [node name="Enemies" type="Node2D" parent="Sections/AZ"]
 

@@ -1,4 +1,5 @@
 extends Node2D
+tool
 
 var t = randf() * 100;
 var kdif = randi()%3
@@ -10,7 +11,7 @@ var rotationVector = [
 ][randi()%3];
 
 func _process(delta):
-	rotationVector = rotationVector.rotated(0.7 * delta);
+	rotationVector = rotationVector.rotated(0.93 * delta);
 	var k = 2 + kdif;
 	t += delta;
 	var x = cos(k*t)*cos(t)

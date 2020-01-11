@@ -4,6 +4,8 @@ onready var buttons = get_node("Buttons").get_children()
 onready var selected_button_index = 0;
 var disabled = true;
 
+var World = load("res://scenes/World.tscn");
+
 func update_buttons():
 	for button in buttons:
 		if (button == buttons[selected_button_index]):
@@ -52,7 +54,7 @@ func _on_PlayBtn_pressed():
 
 func _on_GameStartDelay_timeout():
 	get_tree().get_root().get_node("MainMenu").visible = false;
-	get_tree().change_scene("res://scenes/World.tscn");
+	get_tree().change_scene_to(World);
 
 func _on_ExitBtn_pressed():
 	buttons[1].modulate = Color(0.5, 1, 1, 1);
