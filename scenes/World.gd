@@ -35,7 +35,6 @@ func _on_Level_checkpoint(checkpoint):
 	HUD.set_checkpoint(checkpoint.get_name());
 	
 	for node in get_tree().get_nodes_in_group("to_clear"):
-		print(["remving", node.get_name()])
 		node.queue_free();
 	
 	if (checkpoint.is_last or checkpoint.is_milestone):

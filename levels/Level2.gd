@@ -16,6 +16,7 @@ var TikTak_2 = load("res://scenes/enemies/groups/TikTak_2.tscn");
 var TikTak_3 = load("res://scenes/enemies/groups/TikTak_3.tscn");
 var Ufos_2 = load("res://scenes/enemies/groups/Ufos_2.tscn");
 var Ufos_3 = load("res://scenes/enemies/groups/Ufos_3.tscn");
+var Odlot = load("res://scenes/EndOfCheckpoint.tscn");
 
 var CHECKPOINTS = [
 [ 11520 , "A" ],
@@ -130,12 +131,21 @@ var ENEMIES = [
 [96010,Ufos_3]
 ]
 
+var ODLOTY = [
+17280, 19900, 26880, 28800, 36480, 39100, 46080, 48640, 48000, 48640, 76800, 79420, 86400, 88320, 88320, 90240, 97920, 97920, 99500, 99500
+]
+
 
 func _ready():
 	randomize()
 	create_objects();
 
 func create_objects():
+	for pos in ODLOTY:
+		var obj = Odlot.instance();
+		get_node("Sections/AZ/Checkpoints").add_child(obj);
+		obj.position.x = pos;
+	
 	for pos_obj in CHECKPOINTS:
 		var pos = pos_obj[0];
 		var name = pos_obj[1];

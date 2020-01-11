@@ -79,9 +79,8 @@ func fly_away():
 func decide_faith():
 	fly_away();
 	get_tree().create_timer(3).connect("timeout", self, "_on_end_of_life");
-	
+
 func _on_end_of_life():
-	print(["end of life", get_name()])
 	queue_free();
 
 func _on_Hitbox_area_shape_entered(area_id, area, area_shape, self_shape):

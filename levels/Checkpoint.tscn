@@ -43,18 +43,7 @@ collision_layer = 0
 position = Vector2( 51.2207, -884.592 )
 shape = SubResource( 1 )
 
-[node name="EndOfCheckpoint" type="Area2D" parent="."]
-position = Vector2( -3000, 15.487 )
-collision_layer = 128
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndOfCheckpoint"]
-position = Vector2( 51.2207, -884.592 )
-shape = SubResource( 1 )
-
 [node name="Ping" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 [connection signal="area_entered" from="PlayerScanner" to="." method="_on_PlayerScanner_area_entered"]
 [connection signal="body_entered" from="PlayerScanner" to="." method="_on_PlayerScanner_body_entered"]
-[connection signal="area_entered" from="EndOfCheckpoint" to="." method="_on_PlayerScanner_area_entered"]
-[connection signal="body_entered" from="EndOfCheckpoint" to="." method="_on_PlayerScanner_body_entered"]
