@@ -15,14 +15,23 @@ func _ready():
 	HUD.set_points(0)
 	
 	get_node("Player").position.x = get_node("Level/StartPoint").position.x;
+	var cam = get_node("Player/Camera2D")
+	get_node("PlayerTween").interpolate_property(cam, "position", cam.position - Vector2(500, 0), cam.position, 6.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT);
+	get_node("PlayerTween").start();
 
 func _on_StartMusic_finished():
 	get_node("GameTime").start();
 	get_node("Player").activate();
 	get_node("Sounds/MainMusic").play();
+	
+var respawn_x = 0;
 
 func _on_Level_checkpoint(checkpoint):
-	get_node("Player").respawn_x = checkpoint.global_position.x;
+	if checkpoint.position.x > respawn_x:
+		respawn_x = checkpoint.position.x;
+		
+	get_node("Player").respawn_x = respawn_x
+	
 	HUD.set_checkpoint(checkpoint.get_name());
 	
 	for node in get_tree().get_nodes_in_group("to_clear"):
@@ -64,6 +73,7 @@ func _on_Level_points(_points, transform):
 
 func _on_Player_respawned():
 	get_node("Player").pause_mode = Node.PAUSE_MODE_INHERIT;
+	get_node("Player").position.x = max(respawn_x - 960, 660);
 	
 	if lives <= 0:
 		show_game_over_screen();

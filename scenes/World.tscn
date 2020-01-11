@@ -59,6 +59,8 @@ stream = ExtResource( 9 )
 [node name="GameOver" type="AudioStreamPlayer" parent="Sounds"]
 pause_mode = 2
 stream = ExtResource( 10 )
+
+[node name="PlayerTween" type="Tween" parent="."]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="respawned" from="Player" to="." method="_on_Player_respawned"]
 [connection signal="caution" from="Level" to="." method="_on_Level_caution"]
