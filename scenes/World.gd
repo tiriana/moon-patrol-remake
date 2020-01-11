@@ -6,6 +6,7 @@ export (PackedScene) var PointsIndicator;
 var time = 0;
 
 var lives = 3;
+var reached_end = false;
 
 func _ready():
 	HUD.set_time(0);
@@ -36,6 +37,9 @@ func _on_Level_checkpoint(checkpoint):
 	
 	for node in get_tree().get_nodes_in_group("to_clear"):
 		node.queue_free();
+		
+	if (checkpoint.is_last):
+		reached_end = true;
 	
 	if (checkpoint.is_last or checkpoint.is_milestone):
 		show_summary_screen(checkpoint);
@@ -59,6 +63,9 @@ func reset_time_and_resume():
 	HUD.set_time(time);
 	get_node("UI").hide_screen();
 	get_tree().paused = false;
+	
+	if (reached_end):
+		show_you_won_screen()
 
 func _on_Level_points(_points, transform):
 	points += _points;
@@ -103,7 +110,10 @@ func _on_Player_died():
 func show_game_over_screen():
 	get_tree().paused = true;
 	get_node("UI").show_screen("game_over");
-	
+
+func show_you_won_screen():
+	get_tree().paused = true;
+	get_node("UI").show_screen("you_won");
 	
 func _on_player_continues():
 	lives = 3;

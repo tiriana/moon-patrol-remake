@@ -1,6 +1,6 @@
 extends Control
 
-onready var buttons = get_node("Buttons").get_children()
+var buttons = [];
 onready var selected_button_index = 0;
 var disabled = false;
 
@@ -12,6 +12,9 @@ func update_buttons():
 			button.modulate = Color(1, 1, 1, 0.5);
 
 func _ready():
+	for button in get_node("Buttons").get_children():
+		if (button.visible):
+			buttons.push_back(button)
 	update_buttons()
 
 func _input(ev):

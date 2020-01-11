@@ -12,7 +12,6 @@
 [ext_resource path="res://assets/Sounds/06_GAME_OVER.wav" type="AudioStream" id=10]
 
 [node name="World" type="Node2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 PointsIndicator = ExtResource( 2 )
 

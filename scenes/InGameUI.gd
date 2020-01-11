@@ -6,7 +6,8 @@ signal player_starts_over
 
 var SCREENS = {
 	"game_over": preload("res://scenes/Screens/GameOverScreen.tscn"),
-	"section_summary": preload("res://scenes/Screens/SectionSummary.tscn")
+	"section_summary": preload("res://scenes/Screens/SectionSummary.tscn"),
+	"you_won": preload("res://scenes/Screens/YouWon.tscn")
 }
 
 func _ready():
