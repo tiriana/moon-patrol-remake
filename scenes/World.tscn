@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/PointsIndicator.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/Sounds/02_GAMEPLAY_MUSIC.ogg" type="AudioStream" id=8]
 [ext_resource path="res://assets/Sounds/11_SEQUENCE_END.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/Sounds/06_GAME_OVER.wav" type="AudioStream" id=10]
+[ext_resource path="res://scenes/Pauser.tscn" type="PackedScene" id=11]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -61,6 +62,8 @@ pause_mode = 2
 stream = ExtResource( 10 )
 
 [node name="PlayerTween" type="Tween" parent="."]
+
+[node name="Pauser" parent="." instance=ExtResource( 11 )]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="respawned" from="Player" to="." method="_on_Player_respawned"]
 [connection signal="caution" from="Level" to="." method="_on_Level_caution"]

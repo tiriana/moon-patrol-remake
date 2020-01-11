@@ -7,3 +7,4 @@ func _ready():
 
 func _on_points(points, transform):
 	emit_signal("points", points, transform);
+	add_to_group("to_clear");
