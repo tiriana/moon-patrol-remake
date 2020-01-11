@@ -87,6 +87,7 @@ length = 2641.45
 [sub_resource type="CircleShape2D" id=4]
 
 [node name="TikTak" type="KinematicBody2D"]
+position = Vector2( 0, -1100 )
 collision_layer = 0
 collision_mask = 128
 script = ExtResource( 1 )
@@ -109,7 +110,7 @@ rotation = -0.768211
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 37
+frame = 43
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]

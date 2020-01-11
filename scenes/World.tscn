@@ -16,7 +16,7 @@ script = ExtResource( 1 )
 PointsIndicator = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -3731.22, 891.254 )
+position = Vector2( 992.275, 818.982 )
 INITIAL_SPEED = 300.0
 ACCELERATION = 1.5
 BREAKING = -1.5

@@ -13,6 +13,8 @@ func _ready():
 	HUD.set_checkpoint(" ")
 	HUD.set_highscore(15000)
 	HUD.set_points(0)
+	
+	get_node("Player").position.x = get_node("Level/StartPoint").position.x;
 
 func _on_StartMusic_finished():
 	get_node("GameTime").start();
@@ -36,11 +38,14 @@ func show_summary_screen(checkpoint):
 	var screen = get_node("UI").show_screen("section_summary" if checkpoint.is_last else "section_summary");
 
 	screen.prepare(checkpoint.get_name(), time, checkpoint.avg_time, checkpoint.top_record, checkpoint.bonus(time), checkpoint.is_last)
+	screen.connect("animation_finished", self, "give_checpoint_points", [checkpoint, time], CONNECT_ONESHOT)
 	screen.connect("animation_finished", self, "reset_time_and_resume", [], CONNECT_ONESHOT)
 	screen.start();
 	get_node("Sounds/SectionEnd").play();
-	
-	
+
+func give_checpoint_points(checkpoint, time):
+	_on_Level_points(checkpoint.calc_points(time), checkpoint.get_global_transform());
+
 func reset_time_and_resume():
 	time = 0;
 	HUD.set_time(time);

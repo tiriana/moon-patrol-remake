@@ -13,6 +13,7 @@ var speed_mod = randf() + 1;
 var pos_mod = Vector2(randf(), randf()) * 50;
 var active = false;
 
+
 var is_flying_away = false;
 
 const END_OF_CHECKPOINT_COLLISINO_LAYER = 128;

@@ -85,6 +85,7 @@ animations = [ {
 length = 2641.45
 
 [node name="UFO" type="KinematicBody2D"]
+position = Vector2( 0, -1100 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 1 )
@@ -107,7 +108,7 @@ rate_of_fire = 2.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Movement"]
 frames = SubResource( 2 )
-frame = 27
+frame = 14
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="Body/Movement"]

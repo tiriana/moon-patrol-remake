@@ -38,7 +38,7 @@ func _ready():
 	get_node("VisibleCar/GunFront").can_shot = false;
 	get_node("VisibleCar/GunTop").can_shot = false;
 	
-	get_node("Tween").interpolate_property(get_node("Camera2D"), "position", get_node("Camera2D").position - Vector2(750, 0), get_node("Camera2D").position, 6.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT);
+	get_node("Tween").interpolate_property(get_node("Camera2D"), "position", get_node("Camera2D").position - Vector2(500, 0), get_node("Camera2D").position, 6.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT);
 	get_node("Tween").start();
 	
 func activate():
@@ -121,7 +121,7 @@ func _process(delta):
 	_stick_to_the_ground();
 
 func respawn():
-	var x = respawn_x - 1500;
+	var x = respawn_x - 960;
 	position.x = clamp(x, 0, x);
 	stop_blinking();
 	_ready();	

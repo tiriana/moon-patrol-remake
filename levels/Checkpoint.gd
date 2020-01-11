@@ -23,6 +23,9 @@ func activate():
 	get_node("Letter/Label").add_color_override("font_color", Color(1,1,1))
 	get_node("Ping").play();
 
+func calc_points(time):
+	return bonus(time) + max(avg_time - time, 0) * 100;
+
 func _on_PlayerScanner_body_entered(body):
 	if body.collision_layer == 1:
 		activate()

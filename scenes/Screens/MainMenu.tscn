@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/texture/UI/GAME GUI squares/quitX.png" type="Texture" id=10]
 [ext_resource path="res://icon.png" type="Texture" id=11]
 [ext_resource path="res://assets/Sounds/14_MENU_MUSIC_DUST_OF_THE_SATURN.ogg" type="AudioStream" id=12]
-[ext_resource path="res://assets/texture/Baza.png" type="Texture" id=13]
+[ext_resource path="res://scenes/Base.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -116,11 +116,10 @@ texture = ExtResource( 11 )
 stream = ExtResource( 12 )
 autoplay = true
 
-[node name="base" type="Sprite" parent="."]
-position = Vector2( 530.625, 771.707 )
-texture = ExtResource( 13 )
-
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Base" parent="." instance=ExtResource( 13 )]
+position = Vector2( 523.772, 760.545 )
 [connection signal="pressed" from="UI/Menu/Buttons/PlayBtn" to="UI/Menu" method="_on_PlayBtn_pressed"]
 [connection signal="pressed" from="UI/Menu/Buttons/ExitBtn" to="UI/Menu" method="_on_ExitBtn_pressed"]
 [connection signal="timeout" from="UI/Menu/GameStartDelay" to="UI/Menu" method="_on_GameStartDelay_timeout"]

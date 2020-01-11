@@ -1,13 +1,13 @@
 extends Node2D
 
 export var rate_of_fire = 0.5;
-export var fire_chance = 0.9;
+export var fire_chance = 1.0;
 var active = false;
 
 var Bullet = load("res://scenes/enemies/weapons/Rocket.tscn");
 
 var t = 0;
-var rotator = Vector2(PI / 3,0);
+var rotator = Vector2(PI / 3,0 );
 
 func _ready():
 	get_node("Trigger").wait_time = rate_of_fire;
